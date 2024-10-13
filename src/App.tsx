@@ -10,9 +10,10 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <GlobalStyle />
-        {/* <div> */}
-        <Rotas />
-        {/* </div> */}
+        <div>
+          <Rotas />
+          <Footer />
+        </div>
       </BrowserRouter>
     </Provider>
   );

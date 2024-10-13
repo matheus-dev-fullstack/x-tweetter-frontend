@@ -3,6 +3,7 @@ import { cores } from '../../styles';
 
 export const Footer = styled.div`
   width: 100%;
+  height: 60px;
   padding-top: 60px;
   padding-left: 40px;
   padding-right: 40px;

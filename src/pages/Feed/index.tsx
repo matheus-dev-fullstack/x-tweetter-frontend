@@ -1,7 +1,7 @@
 import Footer from '../../components/Footer';
 import { LoginOptions } from '../../components/LoginOptions';
 
-export const Home = () => {
+export const Feed = () => {
   return (
     <>
       <LoginOptions />

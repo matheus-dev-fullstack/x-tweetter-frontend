@@ -31,7 +31,7 @@ export const Options = styled.div`
 
 export const Title = styled.h1`
   margin-bottom: 22px;
-  font-size: 40px;
+  font-size: 32px;
   color: ${cores.textoClaro};
 `;
 
@@ -42,12 +42,12 @@ export const Form = styled.form`
 
 export const Label = styled.label`
   margin-bottom: 6px;
-  font-size: 20px;
+  font-size: 18px;
   color: ${cores.textoClaro};
 `;
 
 export const Input = styled.input`
-  height: 40px;
+  height: 34px;
   width: 300px;
   margin-bottom: 10px;
   padding-left: 12px;

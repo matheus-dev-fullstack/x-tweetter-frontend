@@ -1,7 +1,7 @@
 import * as S from './styles';
 import logo from '../../assets/x-logo.jpg';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   return (
     <S.Content>
       <S.ImageDiv>
@@ -9,15 +9,17 @@ export const LoginForm = () => {
       </S.ImageDiv>
 
       <S.Options>
-        <S.Title>Fazer Login:</S.Title>
+        <S.Title>Cadastre-se:</S.Title>
         <S.Form action="">
+          <S.Label htmlFor="username">Nome:</S.Label>
+          <S.Input name="username" type="text" />
           <S.Label htmlFor="user">Usuário:</S.Label>
           <S.Input name="user" type="text" />
           <S.Label htmlFor="password">Senha:</S.Label>
           <S.Input name="password" type="password" />
           <S.DivButtons>
-            <S.Button to={`/`}>Login</S.Button>
-            <S.CancelButton to={`/`}>Cancelar</S.CancelButton>
+            <S.Button to={`/`}>Cadastrar</S.Button>
+            <S.CancelButton to={`/`}>Voltar</S.CancelButton>
           </S.DivButtons>
         </S.Form>
       </S.Options>
