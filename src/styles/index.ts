@@ -2,7 +2,8 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
 export const cores = {
-  corTexto: '#fff',
+  textoClaro: '#fff',
+  textoCinza: '#808080',
   corFundo: '#F5F5F5',
   bege: '#FFEBD9',
   branco: '#ffffff',
@@ -31,5 +32,11 @@ export const GlobalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
   display: flex;
   max-width: 1024px;
+  width: 100%;
+`;
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  // max-width: 1024px;
   width: 100%;
 `;
