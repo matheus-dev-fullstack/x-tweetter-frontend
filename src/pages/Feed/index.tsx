@@ -1,12 +1,11 @@
 import Header from '../../components/Header';
-import { LoginOptions } from '../../components/LoginOptions';
+import LeftSidebar from '../../components/LeftSidebar';
 
 const Feed = () => {
   return (
-    <>
-      <Header />
-      <LoginOptions />
-    </>
+    <div className="container">
+      <LeftSidebar />
+    </div>
   );
 };
 export default Feed;

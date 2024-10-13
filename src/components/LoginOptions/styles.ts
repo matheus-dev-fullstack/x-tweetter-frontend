@@ -77,7 +77,7 @@ export const Button = styled(Link)`
   color: ${cores.preto};
 `;
 
-export const JoinButton = styled(Button)`
+export const SecondaryButton = styled(Button)`
   background-color: ${cores.azul};
   color: ${cores.textoClaro};
   font-size: 15px;

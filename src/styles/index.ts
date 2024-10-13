@@ -10,7 +10,8 @@ export const cores = {
   preto: '#000000',
   azul: 'rgb(29, 155, 240);',
   verde: '#28a745',
-  vermelho: '#dc3545'
+  vermelho: '#dc3545',
+  cinzaSecundario: 'rgba(231, 233, 234, 0.13)'
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -29,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     .container {
       // padding: 0 auto;
       // max-width: 1244px
-      max-width: 1258px
+      max-width: 1280px
       // margin: auto;
     }
 `;

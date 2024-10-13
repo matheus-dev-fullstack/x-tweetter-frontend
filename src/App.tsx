@@ -12,7 +12,6 @@ function App() {
         <GlobalStyle />
         <div>
           <Rotas />
-          <Footer />
         </div>
       </BrowserRouter>
     </Provider>
