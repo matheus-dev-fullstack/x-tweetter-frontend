@@ -1,11 +1,16 @@
 import Header from '../../components/Header';
 import LeftSidebar from '../../components/LeftSidebar';
+import Posts from '../../components/Posts';
+import RightSidebar from '../../components/RightSidebar';
+import { Container } from './styles';
 
 const Feed = () => {
   return (
-    <div className="container">
+    <Container className="container">
       <LeftSidebar />
-    </div>
+      <Posts />
+      <RightSidebar />
+    </Container>
   );
 };
 export default Feed;

@@ -15,7 +15,7 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
   justify-content: start;
-  margin-top: 8px;
+  // margin-top: 8px;
 
   img {
     height: 42px;
@@ -26,7 +26,7 @@ export const Links = styled.ul`
   width: 100%;
   display: flex;
   margin: 0;
-  margin-top: 14px;
+  margin-top: 6px;
   padding: 0;
   flex-direction: column;
   align-items: start;
@@ -67,16 +67,18 @@ export const Link = styled.li`
 export const PostButton = styled(SecondaryButton)`\
   width: 234px;
   height: 52px;
-  margin-top: 27px;
+  margin-top: 24px;
   font-size: 16px;
   font-weight: 700;
+  padding-top: 14px;
+  padding-bottom: 14px;
 `;
 
 export const ProfileButton = styled.button`
   height: 60px;
   display: flex;
   align-items: center;
-  margin-top: 36px;
+  margin-top: 46px;
   padding-left: 8px;
   padding-right: 14px;
   border-radius: 34px;
