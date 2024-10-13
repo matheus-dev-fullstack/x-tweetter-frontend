@@ -1,11 +1,11 @@
 import Footer from '../../components/Footer';
-import { LoginOptions } from '../../components/LoginOptions';
+import { LoginForm } from '../../components/LoginForm';
 
 export const Login = () => {
   return (
     <>
-      <LoginOptions />
-      {/* <Footer /> */}
+      <LoginForm />
+      <Footer />
     </>
   );
 
