@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { cores } from '../../styles';
 
-export const Footer = styled.footer`
+export const Footer = styled.div`
   width: 100%;
+  height: 10vh;
   padding: 40px;
 
   a {
-    padding-left: 30px;
+    padding-left: 15px;
+    padding-bottom: 12px;
     font-size: 13px;
-    padding-top: 12px;
     text-align: center;
     color: ${cores.textoCinza};
-    overflow-wrap: break-word;
   }
 `;
 

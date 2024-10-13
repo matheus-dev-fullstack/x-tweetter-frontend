@@ -7,7 +7,10 @@ export const cores = {
   corFundo: '#F5F5F5',
   bege: '#FFEBD9',
   branco: '#ffffff',
-  preto: '#000000'
+  preto: '#000000',
+  azul: 'rgb(29, 155, 240);',
+  verde: '#28a745',
+  vermelho: '#dc3545'
 };
 
 export const GlobalStyle = createGlobalStyle`
@@ -24,9 +27,9 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     .container {
-      padding: 0 auto;
+      // padding: 0 auto;
       max-width: 1024px
-      margin: auto;
+      // margin: auto;
     }
 `;
 export const MainContainer = styled.div`
@@ -37,6 +40,5 @@ export const MainContainer = styled.div`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  // max-width: 1024px;
   width: 100%;
 `;

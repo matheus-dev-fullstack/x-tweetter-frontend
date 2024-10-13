@@ -1,10 +1,11 @@
+import Footer from '../../components/Footer';
 import { LoginOptions } from '../../components/LoginOptions';
-import { Container, MainContainer } from '../../styles';
 
 const Home = () => {
   return (
     <>
       <LoginOptions />
+      <Footer />
     </>
   );
 

@@ -8,14 +8,19 @@ export const LoginOptions = () => {
         <img src={logo} alt="" />
       </S.ImageDiv>
 
-      <div>
-        <button>Criar conta</button>
-        <p>
-          Ao se inscrever, você concorda com os Termos de Serviço e <br />a
-          Política de Privacidade, incluindo o Uso de Cookies.
-        </p>
-        <button>Login</button>
-      </div>
+      <S.Options>
+        <S.Title>Acontecendo Agora</S.Title>
+
+        <S.TextSubscribe>Inscreva-se hoje</S.TextSubscribe>
+        <S.Button>Criar conta</S.Button>
+        <S.Terms>
+          Ao se inscrever, você concorda com os <span>Termos de Serviço</span> e{' '}
+          <br />a <span>Política de Privacidade</span>, incluindo o{' '}
+          <span>Uso de Cookies</span>.
+        </S.Terms>
+        <S.LoginTitle>Já tem uma conta?</S.LoginTitle>
+        <S.LoginButton>Login</S.LoginButton>
+      </S.Options>
     </S.Content>
   );
 };
