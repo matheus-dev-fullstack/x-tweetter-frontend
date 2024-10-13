@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import { Login } from './pages/Login';
 import { RegisterForm } from './components/RegisterForm';
+import Login from './pages/Login';
 
 const Rotas = () => (
   <Routes>

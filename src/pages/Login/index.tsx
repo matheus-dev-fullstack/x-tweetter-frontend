@@ -1,10 +1,11 @@
 import Footer from '../../components/Footer';
 import { LoginForm } from '../../components/LoginForm';
 
-export const Login = () => {
+const Login = () => {
   return (
     <>
       <LoginForm />
     </>
   );
 };
+export default Login;

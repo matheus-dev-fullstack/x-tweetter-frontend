@@ -1,10 +1,12 @@
 import Footer from '../../components/Footer';
 import { LoginOptions } from '../../components/LoginOptions';
 
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <LoginOptions />
     </>
   );
 };
+
+export default Home;

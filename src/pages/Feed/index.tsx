@@ -1,10 +1,10 @@
-import Footer from '../../components/Footer';
 import { LoginOptions } from '../../components/LoginOptions';
 
-export const Feed = () => {
+const Feed = () => {
   return (
     <>
       <LoginOptions />
     </>
   );
 };
+export default Feed;
