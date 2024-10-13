@@ -3,7 +3,7 @@ import { cores } from '../../styles';
 import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Container = styled.header`
-  width: 640px;
+  width: 598px;
   display: flex;
   flex-direction: column;
   // justify-content: center;
@@ -11,7 +11,7 @@ export const Container = styled.header`
 `;
 
 export const Header = styled.div`
-  width: 640px;
+  // width: 640px;
   height: 54px;
 
   display: flex;
