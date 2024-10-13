@@ -12,14 +12,14 @@ export const LoginOptions = () => {
         <S.Title>Acontecendo Agora</S.Title>
 
         <S.TextSubscribe>Inscreva-se hoje</S.TextSubscribe>
-        <S.Button>Criar conta</S.Button>
+        <S.JoinButton to={`/login`}>Criar conta</S.JoinButton>
         <S.Terms>
           Ao se inscrever, você concorda com os <span>Termos de Serviço</span> e{' '}
           <br />a <span>Política de Privacidade</span>, incluindo o{' '}
           <span>Uso de Cookies</span>.
         </S.Terms>
         <S.LoginTitle>Já tem uma conta?</S.LoginTitle>
-        <S.LoginButton>Login</S.LoginButton>
+        <S.Button to={`/login`}>Entrar</S.Button>
       </S.Options>
     </S.Content>
   );

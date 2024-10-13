@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { cores } from '../../styles';
+import { Link } from 'react-router-dom';
 
 export const Content = styled.div`
   height: 90vh;
@@ -60,7 +61,10 @@ export const Terms = styled.p`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(Link)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 40px;
   width: 200px;
   font-size: 15px;
@@ -68,10 +72,14 @@ export const Button = styled.button`
   border-radius: 25px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  background-color: ${cores.branco};
+  color: ${cores.preto};
 `;
 
-export const LoginButton = styled(Button)`
+export const JoinButton = styled(Button)`
   background-color: ${cores.azul};
   color: ${cores.textoClaro};
   font-size: 15px;
+  font-weight: 500;
 `;
