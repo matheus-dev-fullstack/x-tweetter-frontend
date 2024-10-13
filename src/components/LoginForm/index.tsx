@@ -16,7 +16,7 @@ export const LoginForm = () => {
           <S.Label htmlFor="password">Senha:</S.Label>
           <S.Input name="password" type="password" />
           <S.DivButtons>
-            <S.Button to={`/`}>Login</S.Button>
+            <S.Button to={`/feed`}>Login</S.Button>
             <S.CancelButton to={`/`}>Cancelar</S.CancelButton>
           </S.DivButtons>
         </S.Form>

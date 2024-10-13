@@ -70,13 +70,13 @@ export const Button = styled(Link)`
   height: 40px;
   width: 140px;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 400;
   border-radius: 12px;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  background-color: ${cores.branco};
-  color: ${cores.preto};
+  background-color: ${cores.azul};
+  color: ${cores.textoClaro};
   margin-right: 20px;
 `;
 
@@ -84,5 +84,5 @@ export const CancelButton = styled(Button)`
   background-color: ${cores.preto};
   color: ${cores.textoClaro};
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 400;
 `;

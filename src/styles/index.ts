@@ -28,7 +28,8 @@ export const GlobalStyle = createGlobalStyle`
 
     .container {
       // padding: 0 auto;
-      max-width: 1024px
+      // max-width: 1244px
+      max-width: 1258px
       // margin: auto;
     }
 `;
