@@ -96,6 +96,8 @@ export const ProfileButton = styled.button`
   i {
     margin-left: auto;
     margin-right: 6px;
+    color: ${cores.textoClaro};
+    font-size: 18px;
   }
 `;
 export const ProfileImage = styled.img`
