@@ -4,9 +4,11 @@ import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Sidebar = styled.header`
   width: 264px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden;
 `;
 
 export const Logo = styled.div`

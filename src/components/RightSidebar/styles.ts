@@ -2,13 +2,17 @@ import styled from 'styled-components';
 import { cores } from '../../styles';
 import { SecondaryButton } from '../LoginOptions/styles';
 import { Link } from 'react-router-dom';
+import { Verified } from '../Posts/styles';
 
 export const Sidebar = styled.header`
+  left: 0;
   width: 350px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   // justify-content: center;
   margin-left: 30px;
+  overflow-y: hidden;
 `;
 
 export const Search = styled.div`
@@ -143,6 +147,9 @@ export const ProfileButton = styled.button`
 `;
 export const ProfileImage = styled.img`
   height: 42px;
+  width: 42px;
+  object-fit: cover;
+  border-radius: 4px;
 `;
 export const ProfileName = styled.div`
   height: 42px;
@@ -164,6 +171,7 @@ export const ProfileName = styled.div`
   p {
     font-size: 15px;
     font-weight: 700;
+    margin-right: 4px;
     color: ${cores.textoClaro};
     margin-bottom: 4px;
   }
@@ -204,4 +212,9 @@ export const Terms = styled.div`
     font-size: 13px;
     color: ${cores.textoCinza};
   }
+`;
+
+export const VerifiedPlus = styled(Verified)`
+  padding-left: 5px;
+  color: #ffd700;
 `;
