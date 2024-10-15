@@ -3,19 +3,23 @@ import logo from '../../assets/x-logo.jpg';
 import { SecondaryButton } from '../LoginOptions/styles';
 import perfil from '../../assets/perfil2.jpg';
 import dog from '../../assets/dog-samurai.jpg';
+import dolangue from '../../assets/dolangue.png';
+import dolanguepost from '../../assets/dolangue-post.png';
+import cesar from '../../assets/cesar.jpg';
+import cesarpost from '../../assets/cesar-post.jpg';
 
 const postsData = {
   posts: [
     {
       user: {
-        name: 'Matheus Oliveira',
-        username: '@MatheusOli2249',
-        profileImage: perfil,
+        name: 'Dolangue News',
+        username: '@DolangueNews',
+        profileImage: dolangue,
         verified: true
       },
       content: {
-        text: 'Tesstando componente aquecimento global carros eletricos eletronicos alienigenas por todo lado',
-        image: dog
+        text: 'URGENTE: já é quase amanhã',
+        image: dolanguepost
       },
       interactions: {
         likes: 255,
@@ -24,14 +28,14 @@ const postsData = {
     },
     {
       user: {
-        name: 'João Silva',
-        username: '@JoaoSilva22',
-        profileImage: perfil,
+        name: 'Cesar Menotti',
+        username: '@CesarMenotti',
+        profileImage: cesar,
         verified: false
       },
       content: {
-        text: 'Novo post sobre programação e tecnologia! Confira no meu blog.',
-        image: dog
+        text: 'Se não for com paixão, eu nem faço ❤️',
+        image: cesarpost
       },
       interactions: {
         likes: 120,
@@ -73,7 +77,7 @@ const Posts = () => (
                 <p>{post.user.name}</p>
                 <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                 <span>{post.user.username}</span>
-                <S.More className="bi bi-search" />
+                <S.More className="bi bi-three-dots" />
               </S.ProfileName>
               <S.TweetText>{post.content.text}</S.TweetText>
               {post.content.image && (

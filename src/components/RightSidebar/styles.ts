@@ -127,10 +127,10 @@ export const ProfileButton = styled.button`
   height: 60px;
   display: flex;
   align-items: center;
-  padding-left: 8px;
+  padding-left: 14px;
   padding-right: 14px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
   border: none;
   background-color: transparent;
   transition: background-color 0.2s ease;

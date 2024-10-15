@@ -18,6 +18,7 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(031, 033, 034, 0.6);
+  background-color: transparent;
 `;
 export const Button = styled.button`
   height: 100%;
@@ -25,8 +26,9 @@ export const Button = styled.button`
   font-size: 14px;
   font-weight: 700;
   color: ${cores.branco};
-  background-color: rgba(0, 0, 0, 0.3);
-  // backdrop-filter: blur(2px);
+  background-color: rgba(50, 50, 50, 0.05);
+  backdrop-filter: blur(2px);
+  // background-color: transparent;
 
   border: none;
   transition: background-color 0.4s ease;
@@ -48,7 +50,7 @@ export const PostList = styled.div`
 export const Post = styled.div`
   width: 100%;
   min-height: 380px;
-  max-height: 480px;
+  max-height: 620px;
   padding-top: 16px;
   padding-left: 16px;
   padding-right: 16px;
@@ -75,7 +77,8 @@ export const ProfileButton = styled.button`
 `;
 export const More = styled.i`
   margin-left: auto;
-  // margin-right: 4px;
+  color: ${cores.textoCinza};
+  font-size: 18px;
 `;
 export const Verified = styled.i`
   margin-left: 6px;
