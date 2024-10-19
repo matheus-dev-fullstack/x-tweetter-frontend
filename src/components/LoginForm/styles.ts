@@ -86,3 +86,21 @@ export const CancelButton = styled(Button)`
   font-size: 15px;
   font-weight: 500;
 `;
+
+export const ButtonSubmit = styled.button`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 140px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: ${cores.branco};
+  color: ${cores.preto};
+  margin-right: 20px;
+`;

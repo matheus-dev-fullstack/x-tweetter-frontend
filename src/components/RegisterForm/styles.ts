@@ -56,6 +56,10 @@ export const Input = styled.input`
   background-color: ${cores.branco};
   color: ${cores.preto};
 `;
+export const InputFile = styled.input`
+  width: 300px;
+  font-size: 12px;
+`;
 
 export const DivButtons = styled.div`
   display: flex;
@@ -85,4 +89,22 @@ export const CancelButton = styled(Button)`
   color: ${cores.textoClaro};
   font-size: 15px;
   font-weight: 400;
+`;
+
+export const ButtonSubmit = styled.button`
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 140px;
+  font-size: 15px;
+  font-weight: 400;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: ${cores.azul};
+  color: ${cores.textoClaro};
+  margin-right: 20px;
 `;

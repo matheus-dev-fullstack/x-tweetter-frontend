@@ -1,12 +1,5 @@
 import * as S from './styles';
-import logo from '../../assets/x-logo.jpg';
-import { SecondaryButton } from '../LoginOptions/styles';
-import perfil from '../../assets/perfil2.jpg';
-import dog from '../../assets/dog-samurai.jpg';
-import dolangue from '../../assets/dolangue.png';
-import dolanguepost from '../../assets/dolangue-post.png';
-import cesar from '../../assets/cesar.jpg';
-import cesarpost from '../../assets/cesar-post.jpg';
+
 import React, { useState, useEffect } from 'react';
 
 export type Post = {
