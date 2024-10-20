@@ -10,7 +10,7 @@ export const RegisterForm = () => {
     name: string;
     username: string;
     password: string;
-    // perfilPhoto: File;
+    perfilPhoto: File | null;
   };
 
   const {
@@ -21,12 +21,7 @@ export const RegisterForm = () => {
 
   const navigate = useNavigate();
 
-  // const [perfilPhoto, setPerfilPhoto] = useState(null);
-
-  // const handleFileChange = (event) => {
-  //   const file = event.target.files[0];
-  //   setPerfilPhoto(file);
-  // };
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const onSubmit = async (data: Usuario) => {
     try {
@@ -35,7 +30,10 @@ export const RegisterForm = () => {
       formData.append('name', data.name);
       formData.append('username', data.username);
       formData.append('password', data.password);
-      // formData.append('perfilPhoto', data.perfilPhoto);
+
+      if (selectedImage) {
+        formData.append('perfilPhoto', selectedImage);
+      }
 
       await axios.post('http://127.0.0.1:8000/auth/usuarios/', formData, {
         headers: {
@@ -44,8 +42,13 @@ export const RegisterForm = () => {
       });
       navigate('/feed');
     } catch (error) {
-      console.log('Erro ao cadastrar o usuaário:', error);
+      console.log('Erro ao cadastrar o usuário:', error);
     }
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    setSelectedImage(file);
   };
 
   return (
@@ -77,17 +80,13 @@ export const RegisterForm = () => {
           />
           {errors.password && <p>{errors.password.message}</p>}
 
-          {/* <S.Label htmlFor="perfilPhoto" onChange={handleFileChange}>
-            Foto de Perfil:
-          </S.Label>
+          <S.Label htmlFor="perfilPhoto">Foto de Perfil:</S.Label>
           <S.InputFile
-            {...register('perfilPhoto', {
-              required: false
-            })}
             className="form-control form-control-sm"
             type="file"
+            accept="image/*"
+            onChange={handleImageChange}
           />
-          {errors.perfilPhoto && <p>{errors.perfilPhoto.message}</p>} */}
 
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Cadastrar</S.ButtonSubmit>

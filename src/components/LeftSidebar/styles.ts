@@ -80,8 +80,9 @@ export const ProfileButton = styled.button`
   height: 60px;
   display: flex;
   align-items: center;
-  margin-top: 46px;
-  padding-left: 8px;
+  margin-top: 40px;
+  margin-bottom: 28px;
+  // padding-left: 8px;
   padding-right: 14px;
   border-radius: 34px;
   border: none;
@@ -95,7 +96,7 @@ export const ProfileButton = styled.button`
 
   i {
     margin-left: auto;
-    margin-right: 6px;
+    margin-top: 4px;
     color: ${cores.textoClaro};
     font-size: 18px;
   }

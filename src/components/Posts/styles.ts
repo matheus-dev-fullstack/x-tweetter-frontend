@@ -49,7 +49,7 @@ export const PostList = styled.div`
 `;
 export const Post = styled.div`
   width: 100%;
-  min-height: 380px;
+  // min-height: 380px;
   max-height: 620px;
   padding-top: 16px;
   padding-left: 16px;
@@ -83,13 +83,15 @@ export const More = styled.i`
 export const Verified = styled.i`
   margin-left: 6px;
   margin-right: 5px;
-  padding-top: 2px;
+  // padding-top: 2px;
   color: ${cores.azul};
   // margin-right: 4px;
 `;
 
 export const ProfileImage = styled.img`
   height: 42px;
+  width: 42px;
+  object-fit: cover;
   border-radius: 21px;
   margin-bottom: auto;
   margin-right: 12px;

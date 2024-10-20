@@ -1,3 +1,4 @@
+import { PostForm } from '../PostForm';
 import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
@@ -47,14 +48,15 @@ const Posts = () => {
         <S.Button>For You</S.Button>
         <S.Button>Following</S.Button>
       </S.Header>
+      <PostForm />
       <S.PostList>
         {posts.map((post) => (
           <S.Post key={post.id}>
             <S.ProfileButton>
               <S.ProfileImage
-                // src={dolangue}
+                // src="https://conteudize.ai/blog/wp-content/uploads/2024/06/como-criar-prompts-para-geracao-de-imagens-com-ia.webp"
                 src={post.author.perfilPhoto}
-                // alt={post.author.name}
+                alt={post.author.name}
               />
               <S.Row>
                 <S.ProfileName>
