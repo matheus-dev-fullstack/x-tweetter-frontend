@@ -29,13 +29,13 @@ export const LoginForm = () => {
           }
         }
       );
+      const token = response.data.access_token;
+      localStorage.setItem('token', token);
 
-      // Verifique a resposta do servidor
       console.log('Resposta do servidor:', response.data);
       navigate('/feed');
     } catch (error) {
       alert('Erro no login');
-      console.log('Erro no login:', error);
     }
   };
 

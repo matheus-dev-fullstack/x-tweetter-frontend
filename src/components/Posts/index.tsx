@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { PostForm } from '../PostForm';
 import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
+import { error } from 'console';
 
 export type Post = {
   id: number;
@@ -22,26 +24,55 @@ export type Post = {
 };
 
 const Posts = () => {
+  const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/feed/posts/')
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchPosts = async () => {
+      const token = localStorage.getItem('token'); // Obtém o token do localStorage
+
+      if (!token) {
+        console.error('Token não encontrado, redirecionando para login.');
+        navigate('/login');
+        return;
+      }
+
+      try {
+        const response = await fetch('http://127.0.0.1:8000/feed/posts/', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Erro ao buscar os posts:', errorData);
+          if (errorData.code === 'token_not_valid') {
+            // Redirecionar para a página de login
+            console.error('Token inválido, redirecionando para login.');
+            // Aqui você pode adicionar lógica para redirecionar o usuário para a página de login
+          }
+          throw new Error('Erro na requisição');
+        }
+
+        const data = await response.json();
         setPosts(data);
         setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error('Erro ao buscar os posts:', error);
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    fetchPosts();
+  }, [navigate]);
 
   if (loading) {
     return <p>Carregando...</p>;
   }
-
   return (
     <S.Container>
       <S.Header>
@@ -49,6 +80,7 @@ const Posts = () => {
         <S.Button>Following</S.Button>
       </S.Header>
       <PostForm />
+      {error && <p>{error}</p>}
       <S.PostList>
         {posts.map((post) => (
           <S.Post key={post.id}>
