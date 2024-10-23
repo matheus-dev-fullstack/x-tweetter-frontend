@@ -40,12 +40,15 @@ const Posts = () => {
       }
 
       try {
-        const response = await fetch('http://127.0.0.1:8000/feed/posts/', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+        const response = await fetch(
+          'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            }
           }
-        });
+        );
 
         if (!response.ok) {
           const errorData = await response.json();
