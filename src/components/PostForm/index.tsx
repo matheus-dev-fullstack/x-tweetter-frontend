@@ -18,29 +18,41 @@ export const PostForm = () => {
   } = useForm<Post>();
 
   const navigate = useNavigate();
-
-  // const [perfilPhoto, setPerfilPhoto] = useState(null);
-
-  // const handleFileChange = (event) => {
-  //   const file = event.target.files[0];
-  //   setPerfilPhoto(file);
-  // };
+  const [selectedImage, setSelectedImage] = useState<File[]>([]);
 
   const onSubmit = async (data: Post) => {
     try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.error('Token não encontrado, redirecionando para login.');
+        navigate('/login');
+        return;
+      }
+
       const formData = new FormData();
 
-      formData.append('name', data.content);
-      // formData.append('perfilPhoto', data.perfilPhoto);
+      formData.append('content', data.content);
+
+      selectedImage.forEach((image, index) => {
+        formData.append(`imagens-${index}`, image);
+      });
 
       await axios.post('http://127.0.0.1:8000/feed/posts/', formData, {
         headers: {
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
         }
       });
+      setSelectedImage([]);
       navigate('/feed');
     } catch (error) {
-      console.log('Erro ao cadastrar o usuaário:', error);
+      console.log('Erro ao criar post:', error);
+    }
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setSelectedImage(Array.from(e.target.files));
     }
   };
 
@@ -53,30 +65,21 @@ export const PostForm = () => {
           {...register('content', { required: 'Adicione uma descrição.' })}
         />
         {errors.content && <p>{errors.content.message}</p>}
-
-        {/* <S.InputFile
-            {...register('perfilPhoto', {
-              required: false
-            })}
-            className="form-control form-control-sm"
-            type="file"
-          />
-          {errors.perfilPhoto && <p>{errors.perfilPhoto.message}</p>} */}
-
         <S.Options>
           <S.Attachments>
             <S.InputFile>
               <label htmlFor="imagens">
                 <i className="bi bi-image"></i>
               </label>
-              <input id="imagens" type="file" placeholder="Photo" />
+              <input
+                id="imagens"
+                type="file"
+                multiple
+                onChange={handleImageChange}
+                placeholder="Add images"
+                accept="image/*"
+              />
             </S.InputFile>
-            {/* <S.InputFile>
-              <label htmlFor="emoji">
-                <i className="bi bi-emoji-smile"></i>
-              </label>
-              <input id="emoji" type="emoji" />
-            </S.InputFile> */}
           </S.Attachments>
           <S.ButtonSubmit type="submit">Post</S.ButtonSubmit>
         </S.Options>

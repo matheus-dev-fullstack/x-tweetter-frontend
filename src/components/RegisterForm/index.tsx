@@ -35,11 +35,18 @@ export const RegisterForm = () => {
         formData.append('perfilPhoto', selectedImage);
       }
 
-      await axios.post('http://127.0.0.1:8000/auth/usuarios/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+      await axios.post(
+        'http://127.0.0.1:8000/auth/register/',
+        formData,
+        // await axios.post(
+        // 'https://matheusdevfullstack.pythonanywhere.com/auth/register/',
+        // formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
         }
-      });
+      );
       navigate('/feed');
     } catch (error) {
       console.log('Erro ao cadastrar o usuário:', error);

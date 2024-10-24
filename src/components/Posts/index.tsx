@@ -41,7 +41,8 @@ const Posts = () => {
 
       try {
         const response = await fetch(
-          'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
+          // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
+          'http://127.0.0.1:8000/feed/posts/',
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -53,10 +54,11 @@ const Posts = () => {
         if (!response.ok) {
           const errorData = await response.json();
           console.error('Erro ao buscar os posts:', errorData);
+
           if (errorData.code === 'token_not_valid') {
-            // Redirecionar para a página de login
             console.error('Token inválido, redirecionando para login.');
-            // Aqui você pode adicionar lógica para redirecionar o usuário para a página de login
+            localStorage.removeItem('token');
+            navigate('/login');
           }
           throw new Error('Erro na requisição');
         }
