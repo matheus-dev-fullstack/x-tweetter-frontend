@@ -9,6 +9,7 @@ export const Container = styled.header`
   flex-direction: column;
   border: 1.5px solid rgba(031, 033, 034, 0.6);
   overflow-y: hidden;
+  scroll-behavior: smooth;
 `;
 
 export const Header = styled.div`
@@ -98,6 +99,7 @@ export const ProfileImage = styled.img`
 `;
 export const Row = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: column;
   // background-color: ${cores.cinzaSecundario};
 `;

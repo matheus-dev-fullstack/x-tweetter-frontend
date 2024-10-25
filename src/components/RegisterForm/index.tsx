@@ -36,7 +36,7 @@ export const RegisterForm = () => {
       }
 
       await axios.post(
-        'http://127.0.0.1:8000/auth/register/',
+        'http://127.0.0.1:8000/auth/registrar/',
         formData,
         // await axios.post(
         // 'https://matheusdevfullstack.pythonanywhere.com/auth/register/',

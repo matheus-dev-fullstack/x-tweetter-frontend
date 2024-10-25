@@ -87,48 +87,52 @@ const Posts = () => {
       <PostForm />
       {error && <p>{error}</p>}
       <S.PostList>
-        {posts.map((post) => (
-          <S.Post key={post.id}>
-            <S.ProfileButton>
-              <S.ProfileImage
-                // src="https://conteudize.ai/blog/wp-content/uploads/2024/06/como-criar-prompts-para-geracao-de-imagens-com-ia.webp"
-                src={post.author.perfilPhoto}
-                alt={post.author.name}
-              />
-              <S.Row>
-                <S.ProfileName>
-                  <p>{post.author.name}</p>
-                  <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
-                  {/* <span>{post.user.username}</span> */}
-                  <span>{post.author.username}</span>
-                  <S.More className="bi bi-three-dots" />
-                </S.ProfileName>
-                <S.TweetText>{post.content}</S.TweetText>
-                {post.imagens.length > 0 && (
-                  <S.ImageDiv>
-                    {post.imagens.map((imagem) => (
-                      <img
-                        key={imagem.id}
-                        src={imagem.image}
-                        alt="Post Content"
-                      />
-                    ))}
-                  </S.ImageDiv>
-                )}
-                <S.Actions>
-                  <button>
-                    <i className="bi bi-heart"></i>
-                    <span>{post.likes.length}</span>
-                  </button>
-                  <button>
-                    <i className="bi bi-chat"></i>
-                    <span>{post.comentarios.length}</span>
-                  </button>
-                </S.Actions>
-              </S.Row>
-            </S.ProfileButton>
-          </S.Post>
-        ))}
+        {posts && posts.length > 0 ? (
+          posts.map((post) => (
+            <S.Post key={post.id}>
+              <S.ProfileButton>
+                <S.ProfileImage
+                  // src="https://conteudize.ai/blog/wp-content/uploads/2024/06/como-criar-prompts-para-geracao-de-imagens-com-ia.webp"
+                  src={post.author.perfilPhoto}
+                  alt={post.author.name}
+                />
+                <S.Row>
+                  <S.ProfileName>
+                    <p>{post.author.name}</p>
+                    <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
+                    {/* <span>{post.user.username}</span> */}
+                    <span>{post.author.username}</span>
+                    <S.More className="bi bi-three-dots" />
+                  </S.ProfileName>
+                  <S.TweetText>{post.content}</S.TweetText>
+                  {/* {post.imagens.length > 0 && (
+                    <S.ImageDiv>
+                      {post.imagens.map((imagem) => (
+                        <img
+                          key={imagem.id}
+                          src={imagem.image}
+                          alt="Post Content"
+                        />
+                      ))}
+                    </S.ImageDiv>
+                  )} */}
+                  <S.Actions>
+                    <button>
+                      <i className="bi bi-heart"></i>
+                      <span>{post.likes.length}</span>
+                    </button>
+                    <button>
+                      <i className="bi bi-chat"></i>
+                      <span>{post.comentarios.length}</span>
+                    </button>
+                  </S.Actions>
+                </S.Row>
+              </S.ProfileButton>
+            </S.Post>
+          ))
+        ) : (
+          <p>Erooo</p>
+        )}
       </S.PostList>
     </S.Container>
   );

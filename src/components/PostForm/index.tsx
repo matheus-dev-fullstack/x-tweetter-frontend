@@ -43,18 +43,19 @@ export const PostForm = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      setSelectedImage([]);
-      navigate('/feed');
+      window.location.reload();
+      // setSelectedImage([]);
+      // navigate('/feed');
     } catch (error) {
       console.log('Erro ao criar post:', error);
     }
   };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setSelectedImage(Array.from(e.target.files));
-    }
-  };
+  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) {
+  //     setSelectedImage(Array.from(e.target.files));
+  //   }
+  // };
 
   return (
     <S.Div>
@@ -67,7 +68,7 @@ export const PostForm = () => {
         {errors.content && <p>{errors.content.message}</p>}
         <S.Options>
           <S.Attachments>
-            <S.InputFile>
+            {/* <S.InputFile>
               <label htmlFor="imagens">
                 <i className="bi bi-image"></i>
               </label>
@@ -79,7 +80,7 @@ export const PostForm = () => {
                 placeholder="Add images"
                 accept="image/*"
               />
-            </S.InputFile>
+            </S.InputFile> */}
           </S.Attachments>
           <S.ButtonSubmit type="submit">Post</S.ButtonSubmit>
         </S.Options>
