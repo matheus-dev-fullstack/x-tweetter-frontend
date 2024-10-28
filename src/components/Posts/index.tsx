@@ -78,6 +78,45 @@ const Posts = () => {
   if (loading) {
     return <p>Carregando...</p>;
   }
+
+  const toggleLike = async (postId: number) => {
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (response.ok) {
+        const userId = Number(localStorage.getItem('userId'));
+
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.id === postId
+              ? {
+                  ...post,
+                  likes: post.likes.includes(userId)
+                    ? post.likes.filter((likeId) => likeId !== userId)
+                    : [...post.likes, userId]
+                }
+              : post
+          )
+        );
+      } else {
+        console.error('Erro ao curtir o post');
+      }
+    } catch (error) {
+      console.error('Erro :', error);
+    }
+  };
+
   return (
     <S.Container>
       <S.Header>
@@ -117,7 +156,7 @@ const Posts = () => {
                     </S.ImageDiv>
                   )} */}
                   <S.Actions>
-                    <button>
+                    <button onClick={() => toggleLike(post.id)}>
                       <i className="bi bi-heart"></i>
                       <span>{post.likes.length}</span>
                     </button>
