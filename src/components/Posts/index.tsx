@@ -4,7 +4,17 @@ import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
-
+export type Comentario = {
+  id: number;
+  content: string;
+  post: number;
+  author: {
+    name: string;
+    username: string;
+    perfilPhoto: string;
+  };
+  createdAt: string;
+};
 export type Post = {
   id: number;
   content: string;
@@ -20,7 +30,7 @@ export type Post = {
     post: number;
   }[];
   likes: number[];
-  comentarios: number[];
+  comentarios: Comentario[];
 };
 
 const Posts = () => {
@@ -28,6 +38,7 @@ const Posts = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [comentario, setComentario] = useState<{ [key: number]: string }>({});
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -117,6 +128,54 @@ const Posts = () => {
     }
   };
 
+  const addComment = async (postId: number) => {
+    const token = localStorage.getItem('token');
+    const content = comentario[postId];
+
+    if (!content) {
+      console.error('Conteúdo do comentário vazio');
+      return; // Não faz nada se o conteúdo estiver vazio
+    }
+
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+          // body: JSON.stringify({ content })
+        }
+      );
+
+      if (response.ok) {
+        const newComment = await response.json();
+
+        setPosts((prevPosts) =>
+          prevPosts.map((post) =>
+            post.id === postId
+              ? {
+                  ...post,
+                  comentarios: [...post.comentarios, newComment]
+                }
+              : post
+          )
+        );
+        setComentario((prev) => ({ ...prev, [postId]: '' }));
+      } else {
+        console.error(
+          'Erro ao comentar o post',
+          response.status,
+          response.statusText
+        );
+      }
+    } catch (error) {
+      console.error('Erro :', error);
+    }
+  };
+
   return (
     <S.Container>
       <S.Header>
@@ -164,6 +223,26 @@ const Posts = () => {
                       <i className="bi bi-chat"></i>
                       <span>{post.comentarios.length}</span>
                     </button>
+                    <form
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        addComment(post.id);
+                      }}
+                    >
+                      <input
+                        type="text"
+                        placeholder="Escreva seu comentário"
+                        // value={comentario[post.id] || ''}
+                        value={comentario[post.id] || ''}
+                        onChange={(e) =>
+                          setComentario((prev) => ({
+                            ...prev,
+                            [post.id]: e.target.value
+                          }))
+                        }
+                      />
+                      <button type="submit">Confirmar</button>
+                    </form>
                   </S.Actions>
                 </S.Row>
               </S.ProfileButton>
