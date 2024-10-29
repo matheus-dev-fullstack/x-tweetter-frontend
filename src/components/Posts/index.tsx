@@ -4,16 +4,8 @@ import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
-export type Comentario = {
-  id: number;
+export type ComentarioForm = {
   content: string;
-  post: number;
-  author: {
-    name: string;
-    username: string;
-    perfilPhoto: string;
-  };
-  createdAt: string;
 };
 export type Post = {
   id: number;
@@ -30,7 +22,7 @@ export type Post = {
     post: number;
   }[];
   likes: number[];
-  comentarios: Comentario[];
+  comentarios: ComentarioForm[];
 };
 
 const Posts = () => {
@@ -134,7 +126,7 @@ const Posts = () => {
 
     if (!content) {
       console.error('Conteúdo do comentário vazio');
-      return; // Não faz nada se o conteúdo estiver vazio
+      return;
     }
 
     try {
@@ -145,8 +137,8 @@ const Posts = () => {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
-          }
-          // body: JSON.stringify({ content })
+          },
+          body: JSON.stringify({ content })
         }
       );
 
@@ -223,7 +215,7 @@ const Posts = () => {
                       <i className="bi bi-chat"></i>
                       <span>{post.comentarios.length}</span>
                     </button>
-                    <form
+                    <S.FormComment
                       onSubmit={(event) => {
                         event.preventDefault();
                         addComment(post.id);
@@ -241,8 +233,8 @@ const Posts = () => {
                           }))
                         }
                       />
-                      <button type="submit">Confirmar</button>
-                    </form>
+                      <button type="submit">Enviar</button>
+                    </S.FormComment>
                   </S.Actions>
                 </S.Row>
               </S.ProfileButton>

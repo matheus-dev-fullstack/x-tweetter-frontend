@@ -189,3 +189,19 @@ export const Actions = styled.div`
     }
   }
 `;
+
+export const FormComment = styled.form`
+  width: 260px;
+  display: flex;
+  justify-content: space-between;
+  // background-color: yellow;
+
+  input {
+    width: 100%;
+    border: none;
+    padding: 4px 12px;
+    border-radius: 5px;
+    background-color: #000;
+    color: ${cores.textoCinza};
+  }
+`;
