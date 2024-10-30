@@ -4,8 +4,10 @@ import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
-export type ComentarioForm = {
+export type Comentario = {
+  user: number;
   content: string;
+  post: number;
 };
 export type Post = {
   id: number;
@@ -22,7 +24,7 @@ export type Post = {
     post: number;
   }[];
   likes: number[];
-  comentarios: ComentarioForm[];
+  comentario: Comentario[];
 };
 
 const Posts = () => {
@@ -143,14 +145,14 @@ const Posts = () => {
       );
 
       if (response.ok) {
-        const newComment = await response.json();
+        const newComment: Comentario = await response.json();
 
         setPosts((prevPosts) =>
           prevPosts.map((post) =>
             post.id === postId
               ? {
                   ...post,
-                  comentarios: [...post.comentarios, newComment]
+                  comentario: [...(post.comentario || []), newComment]
                 }
               : post
           )
@@ -209,11 +211,13 @@ const Posts = () => {
                   <S.Actions>
                     <button onClick={() => toggleLike(post.id)}>
                       <i className="bi bi-heart"></i>
-                      <span>{post.likes.length}</span>
+                      <span>{post.likes ? post.likes.length : 0}</span>
                     </button>
                     <button>
                       <i className="bi bi-chat"></i>
-                      <span>{post.comentarios.length}</span>
+                      <span>
+                        {post.comentario ? post.comentario.length : 0}
+                      </span>
                     </button>
                     <S.FormComment
                       onSubmit={(event) => {
@@ -223,7 +227,7 @@ const Posts = () => {
                     >
                       <input
                         type="text"
-                        placeholder="Escreva seu comentário"
+                        placeholder="Comentar"
                         // value={comentario[post.id] || ''}
                         value={comentario[post.id] || ''}
                         onChange={(e) =>

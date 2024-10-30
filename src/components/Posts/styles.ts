@@ -191,7 +191,7 @@ export const Actions = styled.div`
 `;
 
 export const FormComment = styled.form`
-  width: 260px;
+  width: 310px;
   display: flex;
   justify-content: space-between;
   // background-color: yellow;
