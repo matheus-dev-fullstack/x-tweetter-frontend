@@ -6,9 +6,11 @@ import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 export type Comentario = {
   id?: number;
-  author?: {
+  count: number;
+  author: {
     id?: string;
     name: string;
+    username: string;
   };
   user: number;
   content: string;
@@ -44,6 +46,16 @@ const Posts = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [comentario, setComentario] = useState<{ [key: number]: string }>({});
+  const [showComments, setShowComments] = useState<{ [key: number]: boolean }>(
+    {}
+  );
+
+  const toggleComments = (postId: number) => {
+    setShowComments((prevShowComments) => ({
+      ...prevShowComments,
+      [postId]: !prevShowComments[postId]
+    }));
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -244,39 +256,41 @@ const Posts = () => {
                       <i className="bi bi-heart"></i>
                       <span>{post.likes ? post.likes.length : 0}</span>
                     </button>
-                    <button>
+                    <button onClick={() => toggleComments(post.id)}>
                       <i className="bi bi-chat"></i>
-                      {/* <span>
-                        {post.comentarios ? post.comentarios.length : 0}
-                      </span> */}
+                      <span>{post.comentarios.count}</span>
                     </button>
-                    <S.FormComment
-                      onSubmit={(event) => {
-                        event.preventDefault();
-                        addComment(post.id);
-                      }}
-                    >
-                      <input
-                        type="text"
-                        placeholder="Comentar"
-                        // value={comentario[post.id] || ''}
-                        value={comentario[post.id] || ''}
-                        onChange={(e) =>
-                          setComentario((prev) => ({
-                            ...prev,
-                            [post.id]: e.target.value
-                          }))
-                        }
-                      />
-                      <button type="submit">Enviar</button>
-                    </S.FormComment>
                   </S.Actions>
-                  {post.comentarios.details.map((comment) => (
-                    <S.Comment key={comment.id}>
-                      <p>{comment.author?.name || 'Anônimo'}</p>
-                      <p>{comment.content}</p>
-                    </S.Comment>
-                  ))}
+                  {showComments[post.id] && (
+                    <S.Comments>
+                      <S.FormComment
+                        onSubmit={(event) => {
+                          event.preventDefault();
+                          addComment(post.id);
+                        }}
+                      >
+                        <input
+                          type="text"
+                          placeholder="Comentar"
+                          // value={comentario[post.id] || ''}
+                          value={comentario[post.id] || ''}
+                          onChange={(e) =>
+                            setComentario((prev) => ({
+                              ...prev,
+                              [post.id]: e.target.value
+                            }))
+                          }
+                        />
+                        <button type="submit">Enviar</button>
+                      </S.FormComment>
+                      {post.comentarios.details.map((comment) => (
+                        <S.Comment key={comment.id}>
+                          <span>{comment.author.username}</span>
+                          <p>{comment.content}</p>
+                        </S.Comment>
+                      ))}
+                    </S.Comments>
+                  )}
                 </S.Row>
               </S.ProfileButton>
             </S.Post>

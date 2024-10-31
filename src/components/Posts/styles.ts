@@ -191,25 +191,59 @@ export const Actions = styled.div`
 `;
 
 export const FormComment = styled.form`
-  width: 310px;
+  // width: 310px;
   display: flex;
   justify-content: space-between;
-  // background-color: yellow;
+  border-radius: 3px;
 
   input {
     width: 100%;
+    height: 28px;
     border: none;
+    font-size: 12px;
     padding: 4px 12px;
-    border-radius: 5px;
-    background-color: #000;
+    border-radius: 4px 0 0 4px;
+    // background-color: #000;
     color: ${cores.textoCinza};
+
+    :focus {
+      outline: none;
+    }
+  }
+
+  button {
+    border-radius: 0 6px 6px 0;
+    border: none;
+    padding: 4px 18px;
+    font-size: 12px;
   }
 `;
-
+export const Comments = styled.div`
+  display: flex
+  flex-direction: column;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  margin-right: 8px;
+`;
 export const Comment = styled.div`
-  background-color: ${cores.azul};
+  border: 1px solid rgba(131, 133, 134, 1);
+  color: ${cores.textoClaro};
+  margin-top: 2px;
   display: flex;
-  gap: 8px;
-  border-radius: 8px;
-  padding: 4px 6px;
+  align-items: center;
+  border-radius: 4px;
+  padding: 4px 12px;
+
+  span {
+    margin-right: 12px;
+    color: ${cores.azul};
+    font-size: 14px;
+  }
+
+  p {
+    text-align: center;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0;
+  }
 `;
