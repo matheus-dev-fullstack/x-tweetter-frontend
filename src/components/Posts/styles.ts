@@ -205,3 +205,11 @@ export const FormComment = styled.form`
     color: ${cores.textoCinza};
   }
 `;
+
+export const Comment = styled.div`
+  background-color: ${cores.azul};
+  display: flex;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 4px 6px;
+`;

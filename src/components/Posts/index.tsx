@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 export type Comentario = {
   id?: number;
-  details?: string;
   author?: {
     id?: string;
     name: string;
@@ -15,6 +14,12 @@ export type Comentario = {
   content: string;
   post: number;
 };
+
+export type Comentarios = {
+  count: number;
+  details: Comentario[];
+};
+
 export type Post = {
   id: number;
   content: string;
@@ -30,7 +35,7 @@ export type Post = {
     post: number;
   }[];
   likes: number[];
-  comentarios: Comentario[];
+  comentarios: Comentarios;
 };
 
 const Posts = () => {
@@ -173,7 +178,12 @@ const Posts = () => {
             post.id === postId
               ? {
                   ...post,
-                  comentarios: [...(post.comentarios || []), newComment]
+                  comentarios: {
+                    ...post.comentarios,
+                    count: post.comentarios.count + 1,
+                    details: [...post.comentarios.details, newComment]
+                    // [...(post.comentarios || []), newComment]
+                  }
                 }
               : post
           )
@@ -236,9 +246,9 @@ const Posts = () => {
                     </button>
                     <button>
                       <i className="bi bi-chat"></i>
-                      <span>
+                      {/* <span>
                         {post.comentarios ? post.comentarios.length : 0}
-                      </span>
+                      </span> */}
                     </button>
                     <S.FormComment
                       onSubmit={(event) => {
@@ -262,10 +272,10 @@ const Posts = () => {
                     </S.FormComment>
                   </S.Actions>
                   {post.comentarios.details.map((comment) => (
-                    <div key={comment.id}>
+                    <S.Comment key={comment.id}>
                       <p>{comment.author?.name || 'Anônimo'}</p>
                       <p>{comment.content}</p>
-                    </div>
+                    </S.Comment>
                   ))}
                 </S.Row>
               </S.ProfileButton>
