@@ -5,6 +5,12 @@ import * as S from './styles';
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 export type Comentario = {
+  id?: number;
+  details?: string;
+  author?: {
+    id?: string;
+    name: string;
+  };
   user: number;
   content: string;
   post: number;
@@ -24,7 +30,7 @@ export type Post = {
     post: number;
   }[];
   likes: number[];
-  comentario: Comentario[];
+  comentarios: Comentario[];
 };
 
 const Posts = () => {
@@ -36,7 +42,7 @@ const Posts = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const token = localStorage.getItem('token'); // Obtém o token do localStorage
+      const token = localStorage.getItem('token');
 
       if (!token) {
         console.error('Token não encontrado, redirecionando para login.');
@@ -68,8 +74,23 @@ const Posts = () => {
           throw new Error('Erro na requisição');
         }
 
+        //   const data = await response.json();
+        //   const formattedPosts = data.map((post: Post) => ({
+        //     ...post,
+        //     comentarios: post.comentarios || []
+        //   }));
+        //   setPosts(formattedPosts);
+        //   // setPosts(data);
+        //   setLoading(false);
+        // } catch (error) {
+        //   console.error('Erro ao buscar os posts:', error);
+        //   setLoading(false);
         const data = await response.json();
-        setPosts(data);
+        const formattedPosts = data.map((post: Post) => ({
+          ...post,
+          comentarios: post.comentarios || { count: 0, details: [] }
+        }));
+        setPosts(formattedPosts);
         setLoading(false);
       } catch (error) {
         console.error('Erro ao buscar os posts:', error);
@@ -152,7 +173,7 @@ const Posts = () => {
             post.id === postId
               ? {
                   ...post,
-                  comentario: [...(post.comentario || []), newComment]
+                  comentarios: [...(post.comentarios || []), newComment]
                 }
               : post
           )
@@ -216,7 +237,7 @@ const Posts = () => {
                     <button>
                       <i className="bi bi-chat"></i>
                       <span>
-                        {post.comentario ? post.comentario.length : 0}
+                        {post.comentarios ? post.comentarios.length : 0}
                       </span>
                     </button>
                     <S.FormComment
@@ -240,6 +261,12 @@ const Posts = () => {
                       <button type="submit">Enviar</button>
                     </S.FormComment>
                   </S.Actions>
+                  {post.comentarios.details.map((comment) => (
+                    <div key={comment.id}>
+                      <p>{comment.author?.name || 'Anônimo'}</p>
+                      <p>{comment.content}</p>
+                    </div>
+                  ))}
                 </S.Row>
               </S.ProfileButton>
             </S.Post>
