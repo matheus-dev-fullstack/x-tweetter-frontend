@@ -69,8 +69,8 @@ const Posts = () => {
 
       try {
         const response = await fetch(
-          'http://127.0.0.1:8000/feed/posts/',
-          // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
+          // 'http://127.0.0.1:8000/feed/posts/',
+          'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
           {
             headers: {
               Authorization: `Bearer ${token}`,

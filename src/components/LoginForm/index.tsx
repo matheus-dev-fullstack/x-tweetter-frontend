@@ -53,11 +53,13 @@ export const LoginForm = () => {
           <S.Input
             {...register('username', { required: 'Username é obrigatório' })}
             type="text"
+            placeholder="@username"
           />
           <S.Label htmlFor="password">Senha:</S.Label>
           <S.Input
             {...register('password', { required: 'Senha é obrigatória' })}
             type="password"
+            placeholder="Senha"
           />
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Login</S.ButtonSubmit>

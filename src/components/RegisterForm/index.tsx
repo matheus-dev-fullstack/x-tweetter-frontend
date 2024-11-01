@@ -80,12 +80,14 @@ export const RegisterForm = () => {
           <S.Input
             {...register('name', { required: 'Nome é obrigatório' })}
             type="text"
+            placeholder="SeuNome"
           />
           {errors.name && <p>{errors.name.message}</p>}
           <S.Label htmlFor="username">Usuário:</S.Label>
           <S.Input
             {...register('username', { required: 'Username é obrigatório' })}
             type="text"
+            placeholder="@SeuUsername"
           />
           {errors.username && <p>{errors.username.message}</p>}
 
@@ -93,6 +95,7 @@ export const RegisterForm = () => {
           <S.Input
             {...register('password', { required: 'Senha é obrigatória' })}
             type="password"
+            placeholder="********"
           />
           {errors.password && <p>{errors.password.message}</p>}
 

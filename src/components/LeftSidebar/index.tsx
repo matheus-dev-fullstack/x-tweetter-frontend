@@ -25,12 +25,16 @@ const LeftSidebar = () => {
       }
 
       try {
-        const response = await fetch('http://127.0.0.1:8000/auth/perfil/', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+        const response = await fetch(
+          'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
+          {
+            // const response = await fetch('http://127.0.0.1:8000/auth/perfil/', {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            }
           }
-        });
+        );
 
         if (!response.ok) {
           alert('Erro ao buscar os dados do usuário.');
