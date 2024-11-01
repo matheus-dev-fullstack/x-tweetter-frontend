@@ -37,12 +37,17 @@ export const PostForm = () => {
         formData.append(`imagens-${index}`, image);
       });
 
-      await axios.post('http://127.0.0.1:8000/feed/posts/', formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data'
+      // await axios.post('http://127.0.0.1:8000/feed/posts/', formData, {
+      await axios.post(
+        'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data'
+          }
         }
-      });
+      );
       window.location.reload();
       // setSelectedImage([]);
       // navigate('/feed');
