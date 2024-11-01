@@ -31,11 +31,11 @@ export const RegisterForm = () => {
       formData.append('username', data.username);
       formData.append('password', data.password);
 
-      if (selectedImage) {
-        formData.append('perfilPhoto', selectedImage);
-      }
+      // if (selectedImage) {
+      //   formData.append('perfilPhoto', selectedImage);
+      // }
 
-      await axios.post(
+      const response = await axios.post(
         // 'http://127.0.0.1:8000/auth/registrar/',
         'https://matheusdevfullstack.pythonanywhere.com/auth/registrar/',
         formData,
@@ -48,7 +48,15 @@ export const RegisterForm = () => {
           }
         }
       );
-      navigate('/feed');
+      const token = response.data.access_token;
+      if (token) {
+        localStorage.setItem('token', token);
+        navigate('/feed');
+      } else {
+        console.log('Token não recebido após o cadastro.');
+        navigate('/login');
+      }
+      // navigate('/feed');
     } catch (error) {
       console.log('Erro ao cadastrar o usuário:', error);
     }
