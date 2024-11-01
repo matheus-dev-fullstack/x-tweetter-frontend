@@ -6,7 +6,7 @@ import { Container } from './styles';
 
 const Feed = () => {
   return (
-    <Container className="container">
+    <Container className="container d-flex justify-content-between">
       <LeftSidebar />
       <Posts />
       <RightSidebar />

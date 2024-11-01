@@ -69,8 +69,8 @@ const Posts = () => {
 
       try {
         const response = await fetch(
-          // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
-          'http://127.0.0.1:8000/feed/posts/',
+          // 'http://127.0.0.1:8000/feed/posts/',
+          'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -127,7 +127,8 @@ const Posts = () => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        // `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
         {
           method: 'POST',
           headers: {
@@ -171,7 +172,8 @@ const Posts = () => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        // `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
         {
           method: 'POST',
           headers: {
@@ -227,7 +229,6 @@ const Posts = () => {
             <S.Post key={post.id}>
               <S.ProfileButton>
                 <S.ProfileImage
-                  // src="https://conteudize.ai/blog/wp-content/uploads/2024/06/como-criar-prompts-para-geracao-de-imagens-com-ia.webp"
                   src={post.author.perfilPhoto}
                   alt={post.author.name}
                 />
