@@ -87,13 +87,13 @@ export const RegisterForm = () => {
           />
           {errors.password && <p>{errors.password.message}</p>}
 
-          <S.Label htmlFor="perfilPhoto">Foto de Perfil:</S.Label>
+          {/* <S.Label htmlFor="perfilPhoto">Foto de Perfil:</S.Label>
           <S.InputFile
             className="form-control form-control-sm"
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-          />
+          /> */}
 
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Cadastrar</S.ButtonSubmit>
