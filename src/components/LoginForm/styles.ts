@@ -55,6 +55,10 @@ export const Input = styled.input`
   border-radius: 8px;
   background-color: ${cores.branco};
   color: ${cores.preto};
+
+  ::placeholder {
+    color: ${cores.textoCinza};
+  }
 `;
 
 export const DivButtons = styled.div`
