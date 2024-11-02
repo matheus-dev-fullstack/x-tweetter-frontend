@@ -12,27 +12,32 @@ const TrendingsData = {
     {
       context: 'Tranding in Brazil',
       title: 'Nubank',
-      details: '3,960 posts'
+      details: '3,960 posts',
+      link: 'https://x.com/Nubank'
     },
     {
       context: 'Entertainment · Trending',
       title: 'Brino',
-      details: '6,117 posts'
+      details: '6,117 posts',
+      link: 'https://x.com/Brino'
     },
     {
       context: 'Tranding in Brazil',
       title: 'Caloteiro',
-      details: '2,005 posts'
+      details: '2,005 posts',
+      link: 'https://x.com/Caloteiro'
     },
     {
       context: 'Tranding in Brazil',
       title: 'Maçã',
-      details: '10.9K posts'
+      details: '10.9K posts',
+      link: 'https://x.com/Maca'
     },
     {
       context: 'Tranding in Brazil',
       title: 'Alanis',
-      details: '2,209 posts'
+      details: '2,209 posts',
+      link: 'https://x.com/alanis'
     }
   ]
 };
@@ -42,17 +47,20 @@ const TopPages = {
     {
       name: 'PlayStation',
       username: '@PlayStation',
-      fotoPerfil: playstation
+      fotoPerfil: playstation,
+      link: 'https://x.com/playstation'
     },
     {
       name: 'TechTudo',
       username: '@TechTudo',
-      fotoPerfil: techtudo
+      fotoPerfil: techtudo,
+      link: 'https://x.com/techtudo'
     },
     {
       name: 'Olhar Digital',
       username: '@olhardigital',
-      fotoPerfil: olhar
+      fotoPerfil: olhar,
+      link: 'https://x.com/olhardigital'
     }
   ]
 };
@@ -68,7 +76,12 @@ const RightSidebar = () => (
     <S.Card>
       <S.Title>What&apos;s happening</S.Title>
       {TrendingsData.trendings.map((trending, index) => (
-        <S.Trending key={index}>
+        <S.Trending
+          href={trending.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          key={index}
+        >
           <S.DetailTrending>{trending.context}</S.DetailTrending>
           <p>{trending.title}</p>
           <S.DetailTrending>{trending.details}</S.DetailTrending>
@@ -80,7 +93,12 @@ const RightSidebar = () => (
     <S.Card>
       <S.Title>Who to follow</S.Title>
       {TopPages.pages.map((page, index) => (
-        <S.ProfileButton key={index}>
+        <S.ProfileButton
+          href={page.link}
+          key={index}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <S.ProfileImage src={page.fotoPerfil} alt="" />
           <S.ProfileName>
             <p>

@@ -53,7 +53,7 @@ const LeftSidebar = () => {
 
   return (
     <S.Sidebar>
-      <S.Logo>
+      <S.Logo href="/">
         <img src={logo} alt="" />
       </S.Logo>
       <S.Links>

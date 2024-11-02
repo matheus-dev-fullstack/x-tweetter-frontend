@@ -72,13 +72,14 @@ export const Title = styled.h2`
   padding-right: 14px;
 `;
 
-export const Trending = styled.div`
+export const Trending = styled.a`
   display: flex;
   flex-direction: column;
   width: 100%;
   padding-left: 15px;
   padding-right: 14px;
   padding-top: 12px;
+  text-decoration: none;
 
   :hover {
     background-color: rgba(255, 255, 255, 0.03);
@@ -122,7 +123,7 @@ export const ShowMore = styled.p`
   }
 `;
 
-export const ProfileButton = styled.button`
+export const ProfileButton = styled.a`
   width: 100%;
   height: 60px;
   display: flex;
@@ -134,6 +135,7 @@ export const ProfileButton = styled.button`
   border: none;
   background-color: transparent;
   transition: background-color 0.2s ease;
+  text-decoration: none;
 
   :hover {
     background-color: ${cores.cinzaSecundario};

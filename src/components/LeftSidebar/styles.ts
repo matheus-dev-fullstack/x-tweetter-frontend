@@ -11,13 +11,14 @@ export const Sidebar = styled.header`
   overflow: hidden;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled.a`
   width: 264px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
   // margin-top: 8px;
+  cursor: pointer;
 
   img {
     height: 42px;
