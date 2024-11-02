@@ -4,7 +4,7 @@ import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Sidebar = styled.header`
   width: 264px;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +36,7 @@ export const Links = styled.ul`
   gap: 10px;
 `;
 
-export const Link = styled.li`
+export const Link = styled.a`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,8 +47,10 @@ export const Link = styled.li`
   border-radius: 23px;
   transition: background-color 0.2s ease;
   color: ${cores.textoClaro};
+  text-decoration: none;
 
-  :hover {
+  :hover,
+  #selected {
     background-color: ${cores.cinzaSecundario};
     transition: background-color 0.2s ease;
   }

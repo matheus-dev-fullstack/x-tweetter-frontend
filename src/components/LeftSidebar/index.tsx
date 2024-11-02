@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 type User = {
   name: string;
   username: string;
-  perfilPhoto: string | null;
+  // perfilPhoto: string | null;
 };
 
 const LeftSidebar = () => {
@@ -57,65 +57,102 @@ const LeftSidebar = () => {
         <img src={logo} alt="" />
       </S.Logo>
       <S.Links>
-        <S.Link id="selected">
+        <S.Link
+          href="https://x.com/home"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="selected"
+        >
           <i className="bi bi-house-door" />
           <p>Home</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/explore"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-search" />
           <p>Explore</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/notifications"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-bell" />
           <p>Notifications</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/messages"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-envelope" />
           <p>Messages</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/grok"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-slash-circle" />
           <p>Grok</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/bookmarks"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-bookmark" />
           <p>Bookmarks</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/jobs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-briefcase" />
           <p>Jobs</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/communities"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-people" />
           <p>Communities</p>
         </S.Link>
-        <S.Link>
+        <S.Link
+          href="https://x.com/premium"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <i className="bi bi-twitter-x" />
           <p>Premium</p>
         </S.Link>
-        <S.Link>
+        <S.Link href="https://x.com/i/verified-orgs-signup">
           <i className="bi bi-lightning-charge" />
           <p>Verified Orgs</p>
         </S.Link>
-        <S.Link>
+        <S.Link href="https://x.com/" target="_blank" rel="noopener noreferrer">
           <i className="bi bi-person" />
           <p>Profile</p>
         </S.Link>
-        <S.Link>
+        <S.Link href="https://x.com/" target="_blank" rel="noopener noreferrer">
           <i className="bi bi-three-dots" />
           <p>More</p>
         </S.Link>
       </S.Links>
-      <S.PostButton to="/">Post</S.PostButton>
-      <S.ProfileButton>
-        <S.ProfileImage src={user?.perfilPhoto || 'perfil'} alt="" />
-        <S.ProfileName>
-          <p>{user?.name}</p>
-          {/* <span>@MatheusOli2249</span> */}
-          <span>{user?.username}</span>
-        </S.ProfileName>
-        <i className="bi bi-three-dots" />
-      </S.ProfileButton>
+      {/* <S.PostButton to="/">Post</S.PostButton> */}
+      {/* <S.ProfileButton> */}
+      {/* <S.ProfileImage src={user?.perfilPhoto || 'perfil'} alt="" /> */}
+      {/* <S.ProfileName> */}
+      {/* <p>{user?.name}</p> */}
+      {/* <span>@MatheusOli2249</span> */}
+      {/* <span>{user?.username}</span> */}
+      {/* </S.ProfileName> */}
+      {/* <i className="bi bi-three-dots" /> */}
+      {/* </S.ProfileButton> */}
     </S.Sidebar>
   );
 };
