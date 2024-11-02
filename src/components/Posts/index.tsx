@@ -229,7 +229,7 @@ const Posts = () => {
             <S.Post key={post.id}>
               <S.ProfileButton>
                 <S.ProfileImage
-                  src={post.author.perfilPhoto}
+                  src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg"
                   alt={post.author.name}
                 />
                 <S.Row>
