@@ -4,7 +4,7 @@ import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Sidebar = styled.header`
   width: 264px;
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

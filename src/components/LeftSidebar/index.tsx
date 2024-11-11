@@ -26,9 +26,10 @@ const LeftSidebar = () => {
 
       try {
         const response = await fetch(
-          'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
+          // 'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
+          // {
+          'http://127.0.0.1:8000/auth/perfil/',
           {
-            // const response = await fetch('http://127.0.0.1:8000/auth/perfil/', {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'application/json'
@@ -143,16 +144,17 @@ const LeftSidebar = () => {
           <p>More</p>
         </S.Link>
       </S.Links>
-      {/* <S.PostButton to="/">Post</S.PostButton> */}
-      {/* <S.ProfileButton> */}
-      {/* <S.ProfileImage src={user?.perfilPhoto || 'perfil'} alt="" /> */}
-      {/* <S.ProfileName> */}
-      {/* <p>{user?.name}</p> */}
-      {/* <span>@MatheusOli2249</span> */}
-      {/* <span>{user?.username}</span> */}
-      {/* </S.ProfileName> */}
-      {/* <i className="bi bi-three-dots" /> */}
-      {/* </S.ProfileButton> */}
+      <S.PostButton to="/">Post</S.PostButton>
+      <S.ProfileButton>
+        {/* <S.ProfileImage src={user?.perfilPhoto || 'perfil'} alt="" /> */}
+        <S.ProfileImage src="perfil" alt="" />
+        <S.ProfileName>
+          <p>{user?.name}</p>
+          <span>@MatheusOli2249</span>
+          <span>{user?.username}</span>
+        </S.ProfileName>
+        <i className="bi bi-three-dots" />
+      </S.ProfileButton>
     </S.Sidebar>
   );
 };

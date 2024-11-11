@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Navigate, redirect, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export const RegisterForm = () => {
+export const PerfilEdit = () => {
   type Usuario = {
     name: string;
     username: string;
@@ -74,8 +74,15 @@ export const RegisterForm = () => {
       </S.ImageDiv>
 
       <S.Options>
-        <S.Title>Cadastre-se:</S.Title>
-        <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <S.Title>Perfil:</S.Title>
+        {/* <S.Form onSubmit={handleSubmit(onSubmit)}> */}
+        <S.Form>
+          <img
+            src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg"
+            alt=""
+            width={60}
+            height={60}
+          />
           <S.Label htmlFor="name">Nome:</S.Label>
           <S.Input
             {...register('name', { required: 'Nome é obrigatório' })}
@@ -99,13 +106,13 @@ export const RegisterForm = () => {
           />
           {errors.password && <p>{errors.password.message}</p>}
 
-          {/* <S.Label htmlFor="perfilPhoto">Foto de Perfil:</S.Label>
+          <S.Label htmlFor="perfilPhoto">Foto de Perfil:</S.Label>
           <S.InputFile
             className="form-control form-control-sm"
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-          /> */}
+          />
 
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Cadastrar</S.ButtonSubmit>
