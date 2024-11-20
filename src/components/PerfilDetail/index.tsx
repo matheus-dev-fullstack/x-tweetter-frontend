@@ -40,7 +40,7 @@ export type Post = {
   comentarios: Comentarios;
 };
 
-const Posts = () => {
+const PerfilDetail = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -127,8 +127,8 @@ const Posts = () => {
 
     try {
       const response = await fetch(
-        // `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
-        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
+        `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
         {
           method: 'POST',
           headers: {
@@ -172,8 +172,8 @@ const Posts = () => {
 
     try {
       const response = await fetch(
-        // `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
-        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
+        `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
         {
           method: 'POST',
           headers: {
@@ -218,90 +218,15 @@ const Posts = () => {
   return (
     <S.Container>
       <S.Header>
-        <S.Button>For You</S.Button>
-        <S.Button>Following</S.Button>
+        <button>Voltar</button>
+        <h4>Matheus Oliveira</h4>
       </S.Header>
-      <PostForm />
-      {error && <p>{error}</p>}
-      <S.PostList>
-        {posts && posts.length > 0 ? (
-          posts.map((post) => (
-            <S.Post key={post.id}>
-              <S.ProfileButton>
-                <S.ProfileImage
-                  src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg"
-                  alt={post.author.name}
-                />
-                <S.Row>
-                  <S.ProfileName>
-                    <p>{post.author.name}</p>
-                    <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
-                    {/* <span>{post.user.username}</span> */}
-                    <span>{post.author.username}</span>
-                    <S.More className="bi bi-three-dots" />
-                  </S.ProfileName>
-                  <S.TweetText>{post.content}</S.TweetText>
-                  {/* {post.imagens.length > 0 && (
-                    <S.ImageDiv>
-                      {post.imagens.map((imagem) => (
-                        <img
-                          key={imagem.id}
-                          src={imagem.image}
-                          alt="Post Content"
-                        />
-                      ))}
-                    </S.ImageDiv>
-                  )} */}
-                  <S.Actions>
-                    <button onClick={() => toggleLike(post.id)}>
-                      <i className="bi bi-heart"></i>
-                      <span>{post.likes ? post.likes.length : 0}</span>
-                    </button>
-                    <button onClick={() => toggleComments(post.id)}>
-                      <i className="bi bi-chat"></i>
-                      <span>{post.comentarios.count}</span>
-                    </button>
-                  </S.Actions>
-                  {showComments[post.id] && (
-                    <S.Comments>
-                      <S.FormComment
-                        onSubmit={(event) => {
-                          event.preventDefault();
-                          addComment(post.id);
-                        }}
-                      >
-                        <input
-                          type="text"
-                          placeholder="Comentar"
-                          // value={comentario[post.id] || ''}
-                          value={comentario[post.id] || ''}
-                          onChange={(e) =>
-                            setComentario((prev) => ({
-                              ...prev,
-                              [post.id]: e.target.value
-                            }))
-                          }
-                        />
-                        <button type="submit">Enviar</button>
-                      </S.FormComment>
-                      {post.comentarios.details.map((comment) => (
-                        <S.Comment key={comment.id}>
-                          <span>{comment.author.username}</span>
-                          <p>{comment.content}</p>
-                        </S.Comment>
-                      ))}
-                    </S.Comments>
-                  )}
-                </S.Row>
-              </S.ProfileButton>
-            </S.Post>
-          ))
-        ) : (
-          <p>Erooo</p>
-        )}
-      </S.PostList>
+      <img
+        src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+        alt=""
+      />
     </S.Container>
   );
 };
 
-export default Posts;
+export default PerfilDetail;

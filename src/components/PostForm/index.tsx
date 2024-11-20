@@ -33,9 +33,9 @@ export const PostForm = () => {
 
       formData.append('content', data.content);
 
-      selectedImage.forEach((image, index) => {
-        formData.append(`imagens-${index}`, image);
-      });
+      // selectedImage.forEach((image, index) => {
+      //   formData.append(`imagens-${index}`, image);
+      // });
 
       await axios.post('http://127.0.0.1:8000/feed/posts/', formData, {
         // await axios.post(

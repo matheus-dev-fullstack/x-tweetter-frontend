@@ -1,13 +1,16 @@
-import Footer from '../../components/Footer';
-import { PerfilEdit } from '../../components/PerfilEdit';
-import { RegisterForm } from '../../components/RegisterForm';
+import Header from '../../components/Header';
+import LeftSidebar from '../../components/LeftSidebar';
+import PerfilDetail from '../../components/PerfilDetail';
+import RightSidebar from '../../components/RightSidebar';
+import { Container } from './styles';
 
 const Perfil = () => {
   return (
-    <>
-      <PerfilEdit />
-      <Footer />
-    </>
+    <Container className="container d-flex justify-content-between">
+      <LeftSidebar />
+      <PerfilDetail />
+      <RightSidebar />
+    </Container>
   );
 };
 export default Perfil;
