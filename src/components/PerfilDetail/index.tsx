@@ -218,13 +218,35 @@ const PerfilDetail = () => {
   return (
     <S.Container>
       <S.Header>
-        <button>Voltar</button>
+        <button>
+          <i className="bi bi-arrow-left-short"></i>
+        </button>
         <h4>Matheus Oliveira</h4>
       </S.Header>
-      <img
-        src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
-        alt=""
-      />
+      <S.Banner>
+        <img
+          src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+          alt=""
+        />
+        <S.PerfilPhoto>
+          <img
+            src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+            alt=""
+          />
+        </S.PerfilPhoto>
+      </S.Banner>
+      <S.Details>
+        <h4>Matheus Oliveira</h4>
+        <S.Username>@MatheusOliveira</S.Username>
+        <S.Followers>
+          <span>
+            <b>1</b> Following
+          </span>
+          <span>
+            <b>0</b> Followers
+          </span>
+        </S.Followers>
+      </S.Details>
     </S.Container>
   );
 };
