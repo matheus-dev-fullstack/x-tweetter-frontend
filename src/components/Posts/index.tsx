@@ -90,18 +90,6 @@ const Posts = () => {
           }
           throw new Error('Erro na requisição');
         }
-
-        //   const data = await response.json();
-        //   const formattedPosts = data.map((post: Post) => ({
-        //     ...post,
-        //     comentarios: post.comentarios || []
-        //   }));
-        //   setPosts(formattedPosts);
-        //   // setPosts(data);
-        //   setLoading(false);
-        // } catch (error) {
-        //   console.error('Erro ao buscar os posts:', error);
-        //   setLoading(false);
         const data = await response.json();
         const formattedPosts = data.map((post: Post) => ({
           ...post,

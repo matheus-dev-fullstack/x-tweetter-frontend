@@ -41,7 +41,7 @@ export const RegisterForm = () => {
         // formData,
         // await axios.post(
         // 'https://matheusdevfullstack.pythonanywhere.com/auth/register/',
-        // formData,
+        formData,
         {
           headers: {
             'Content-Type': 'multipart/form-data'
