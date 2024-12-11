@@ -8,7 +8,7 @@ import { useState } from 'react';
 export const PostForm = () => {
   type Post = {
     content: string;
-    // perfilPhoto: File;
+    imagens: FileList;
   };
 
   const {
@@ -18,7 +18,7 @@ export const PostForm = () => {
   } = useForm<Post>();
 
   const navigate = useNavigate();
-  const [selectedImage, setSelectedImage] = useState<File[]>([]);
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const onSubmit = async (data: Post) => {
     try {
@@ -30,12 +30,11 @@ export const PostForm = () => {
       }
 
       const formData = new FormData();
-
       formData.append('content', data.content);
 
-      // selectedImage.forEach((image, index) => {
-      //   formData.append(`imagens-${index}`, image);
-      // });
+      if (selectedImage) {
+        formData.append('imagem', selectedImage);
+      }
 
       await axios.post('http://127.0.0.1:8000/feed/posts/', formData, {
         // await axios.post(
@@ -47,6 +46,7 @@ export const PostForm = () => {
           'Content-Type': 'multipart/form-data'
         }
       });
+
       window.location.reload();
       // setSelectedImage([]);
       // navigate('/feed');
@@ -54,12 +54,11 @@ export const PostForm = () => {
       console.log('Erro ao criar post:', error);
     }
   };
-
-  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.target.files) {
-  //     setSelectedImage(Array.from(e.target.files));
-  //   }
-  // };
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedImage(e.target.files[0]); // Armazena apenas a primeira imagem selecionada
+    }
+  };
 
   return (
     <S.Div>
@@ -72,19 +71,8 @@ export const PostForm = () => {
         {errors.content && <p>{errors.content.message}</p>}
         <S.Options>
           <S.Attachments>
-            {/* <S.InputFile>
-              <label htmlFor="imagens">
-                <i className="bi bi-image"></i>
-              </label>
-              <input
-                id="imagens"
-                type="file"
-                multiple
-                onChange={handleImageChange}
-                placeholder="Add images"
-                accept="image/*"
-              />
-            </S.InputFile> */}
+            <input type="file" accept="image/*" onChange={handleImageChange} />
+            {selectedImage && <p>Imagem selecionada: {selectedImage.name}</p>}
           </S.Attachments>
           <S.ButtonSubmit type="submit">Post</S.ButtonSubmit>
         </S.Options>

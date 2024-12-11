@@ -31,11 +31,7 @@ export type Post = {
     username: string;
     perfilPhoto: string;
   };
-  imagens: {
-    id: number;
-    image: string;
-    post: number;
-  }[];
+  imagem: string;
   likes: number[];
   comentarios: Comentarios;
 };
@@ -115,8 +111,8 @@ const Posts = () => {
 
     try {
       const response = await fetch(
-        // `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
-        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
+        `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
         {
           method: 'POST',
           headers: {
@@ -160,8 +156,8 @@ const Posts = () => {
 
     try {
       const response = await fetch(
-        // `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
-        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
+        `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
         {
           method: 'POST',
           headers: {
@@ -229,17 +225,11 @@ const Posts = () => {
                     <S.More className="bi bi-three-dots" />
                   </S.ProfileName>
                   <S.TweetText>{post.content}</S.TweetText>
-                  {/* {post.imagens.length > 0 && (
+                  {post.imagem && (
                     <S.ImageDiv>
-                      {post.imagens.map((imagem) => (
-                        <img
-                          key={imagem.id}
-                          src={imagem.image}
-                          alt="Post Content"
-                        />
-                      ))}
+                      <img src={post.imagem} alt="Post Content" />
                     </S.ImageDiv>
-                  )} */}
+                  )}
                   <S.Actions>
                     <button onClick={() => toggleLike(post.id)}>
                       <i className="bi bi-heart"></i>

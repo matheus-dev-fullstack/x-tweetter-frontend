@@ -150,7 +150,7 @@ const LeftSidebar = () => {
         <S.ProfileImage src="perfil" alt="" />
         <S.ProfileName>
           <p>{user?.name}</p>
-          <span>@MatheusOli2249</span>
+          {/* <span>@MatheusOli2249</span> */}
           <span>{user?.username}</span>
         </S.ProfileName>
         <i className="bi bi-three-dots" />
