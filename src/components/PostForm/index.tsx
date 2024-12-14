@@ -8,7 +8,6 @@ import { useState } from 'react';
 export const PostForm = () => {
   type Post = {
     content: string;
-    imagens: FileList;
   };
 
   const {
@@ -29,8 +28,14 @@ export const PostForm = () => {
         return;
       }
 
+      if (!selectedImage) {
+        alert('Por favor, selecione uma imagem.');
+        return;
+      }
+
       const formData = new FormData();
       formData.append('content', data.content);
+      formData.append('imagem', selectedImage);
 
       if (selectedImage) {
         formData.append('imagem', selectedImage);
@@ -47,11 +52,13 @@ export const PostForm = () => {
         }
       });
 
+      setSelectedImage(null);
       window.location.reload();
       // setSelectedImage([]);
       // navigate('/feed');
     } catch (error) {
-      console.log('Erro ao criar post:', error);
+      // console.log('Erro ao criar post:', error);
+      alert('Erro ao criar post:');
     }
   };
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +78,12 @@ export const PostForm = () => {
         {errors.content && <p>{errors.content.message}</p>}
         <S.Options>
           <S.Attachments>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
+            <input
+              type="file"
+              id="image-upload"
+              accept="image/*"
+              onChange={handleImageChange}
+            />
             {selectedImage && <p>Imagem selecionada: {selectedImage.name}</p>}
           </S.Attachments>
           <S.ButtonSubmit type="submit">Post</S.ButtonSubmit>
