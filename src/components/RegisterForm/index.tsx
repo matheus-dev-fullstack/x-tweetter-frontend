@@ -10,7 +10,8 @@ export const RegisterForm = () => {
     name: string;
     username: string;
     password: string;
-    perfilPhoto: File | null;
+    photo: File;
+    banner: File;
   };
 
   const {
@@ -21,15 +22,21 @@ export const RegisterForm = () => {
 
   const navigate = useNavigate();
 
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
+  const [selectedBanner, setSelectedBanner] = useState<File | null>(null);
 
-  const onSubmit = async (data: Usuario) => {
+  // const [selectedImage, setSelectedImage] = useState<File | null>(null);
+
+  const onSubmit = async (data: any) => {
     try {
       const formData = new FormData();
 
       formData.append('name', data.name);
       formData.append('username', data.username);
       formData.append('password', data.password);
+
+      if (data.photo[0]) formData.append('photo', data.photo[0]);
+      if (data.banner[0]) formData.append('banner', data.banner[0]);
 
       // if (selectedImage) {
       //   formData.append('perfilPhoto', selectedImage);
@@ -57,14 +64,10 @@ export const RegisterForm = () => {
         navigate('/login');
       }
       // navigate('/feed');
-    } catch (error) {
+    } catch (error: any) {
       console.log('Erro ao cadastrar o usuário:', error);
+      console.error('Erro:', error.response?.data || error.message);
     }
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-    setSelectedImage(file);
   };
 
   return (
@@ -99,13 +102,24 @@ export const RegisterForm = () => {
           />
           {errors.password && <p>{errors.password.message}</p>}
 
-          {/* <S.Label htmlFor="perfilPhoto">Foto de Perfil:</S.Label>
+          <S.Label htmlFor="photo">Foto de Perfil:</S.Label>
           <S.InputFile
+            // name="photo"
+            {...register('photo')}
             className="form-control form-control-sm"
             type="file"
             accept="image/*"
-            onChange={handleImageChange}
-          /> */}
+            // onChange={handlePhotoChange}
+          />
+          <S.Label htmlFor="banner">Banner do Perfil:</S.Label>
+          <S.InputFile
+            {...register('banner')}
+            // name="banner"
+            className="form-control form-control-sm"
+            type="file"
+            accept="image/*"
+            // onChange={handleBannerChange}
+          />
 
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Cadastrar</S.ButtonSubmit>

@@ -8,7 +8,8 @@ import { error } from 'console';
 type Perfil = {
   name: string;
   username: string;
-  foto: string;
+  photo: string;
+  banner: string;
 };
 
 const PerfilDetail = () => {
@@ -71,12 +72,14 @@ const PerfilDetail = () => {
       </S.Header>
       <S.Banner>
         <img
-          src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+          // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+          src={perfil?.banner}
           alt=""
         />
         <S.PerfilPhoto>
           <img
-            src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+            // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+            src={perfil?.photo}
             alt=""
           />
         </S.PerfilPhoto>
