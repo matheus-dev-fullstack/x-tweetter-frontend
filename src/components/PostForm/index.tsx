@@ -78,12 +78,20 @@ export const PostForm = () => {
         {errors.content && <p>{errors.content.message}</p>}
         <S.Options>
           <S.Attachments>
-            <input
-              type="file"
-              id="image-upload"
-              accept="image/*"
-              onChange={handleImageChange}
-            />
+            <S.InputFile>
+              <label htmlFor="image-upload">
+                <i className="bi bi-file-earmark-image me-2"></i>
+                Adicionar Imagem
+              </label>
+              <input
+                name="image"
+                type="file"
+                id="image-upload"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </S.InputFile>
+
             {selectedImage && <p>Imagem selecionada: {selectedImage.name}</p>}
           </S.Attachments>
           <S.ButtonSubmit type="submit">Post</S.ButtonSubmit>

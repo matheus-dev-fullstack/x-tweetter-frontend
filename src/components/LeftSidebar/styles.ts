@@ -4,7 +4,7 @@ import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Sidebar = styled.header`
   width: 264px;
-  // height: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,7 +106,11 @@ export const ProfileButton = styled.button`
 `;
 export const ProfileImage = styled.img`
   height: 42px;
+  width: 42px;
+  margin-left: 8px;
+  margin-right: 6px;
   border-radius: 21px;
+  object-fit: cover;
 `;
 export const ProfileName = styled.div`
   height: 42px;
@@ -133,7 +137,7 @@ export const ProfileName = styled.div`
   }
 
   span {
-    font-size: 15px;
+    font-size: 14px;
     color: ${cores.textoCinza};
     margin-left: 3px;
   }

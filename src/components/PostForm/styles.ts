@@ -64,7 +64,7 @@ export const Attachments = styled.div`
 `;
 export const InputFile = styled.div`
   display: flex;
-  margin-left: 6px;
+  // margin-left: 6px;
 
   input[type='file'] {
     display: none;
@@ -74,13 +74,14 @@ export const InputFile = styled.div`
     cursor: pointer;
     // background-color: ${cores.azul};
     color: ${cores.azul};
-    padding: 6px 6px;
+    padding: 6px 13px;
     border-radius: 20px;
     font-size: 15px;
     // font-weight: 400;
 
     :hover {
-      // background-color: ${cores.azul};
+      background-color: ${cores.azul};
+      color: ${cores.branco};
     }
 
     i {
