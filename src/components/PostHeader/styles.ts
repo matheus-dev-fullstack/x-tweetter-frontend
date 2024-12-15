@@ -6,8 +6,6 @@ export const Container = styled.header`
   height: 100vh;
   width: 598px;
   display: flex;
-  margin-left: 264px;
-  margin-right: 350px;
   flex-direction: column;
   border: 1.5px solid rgba(031, 033, 034, 0.6);
   overflow-y: hidden;

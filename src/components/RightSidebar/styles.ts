@@ -4,15 +4,16 @@ import { SecondaryButton } from '../LoginOptions/styles';
 import { Link } from 'react-router-dom';
 import { Verified } from '../Posts/styles';
 
-export const Sidebar = styled.header`
-  left: 0;
+export const Sidebar = styled.div`
   width: 350px;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  margin-left: 30px;
+  margin-right: 60px;
   overflow-y: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
 `;
 
 export const Search = styled.div`

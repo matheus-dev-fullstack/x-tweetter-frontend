@@ -4,20 +4,22 @@ import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Sidebar = styled.header`
   width: 264px;
-  height: 100%;
+  margin-right: 264px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
+  position: fixed;
 `;
 
 export const Logo = styled.a`
   width: 264px;
-  height: 100%;
+  // height: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
-  // margin-top: 8px;
+  margin-top: 8px;
   cursor: pointer;
 
   img {
@@ -72,18 +74,18 @@ export const Link = styled.a`
 export const PostButton = styled(SecondaryButton)`\
   width: 234px;
   height: 52px;
-  margin-top: 24px;
+  margin-top: auto;
   font-size: 16px;
   font-weight: 700;
   padding-top: 14px;
   padding-bottom: 14px;
 `;
 
-export const ProfileButton = styled.button`
+export const ProfileButton = styled(Link)`
   height: 60px;
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 28px;
   // padding-left: 8px;
   padding-right: 14px;

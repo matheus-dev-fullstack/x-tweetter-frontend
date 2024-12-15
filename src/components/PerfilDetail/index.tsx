@@ -4,6 +4,7 @@ import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
+import PostList from '../PostList';
 
 type Perfil = {
   name: string;
@@ -117,6 +118,7 @@ const PerfilDetail = () => {
           </span>
         </S.Followers>
       </S.Details>
+      <PostList />
     </S.Container>
   );
 };

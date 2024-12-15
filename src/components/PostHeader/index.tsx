@@ -4,8 +4,6 @@ import * as S from './styles';
 
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
-import PostHeader from '../PostHeader';
-import PostList from '../PostList';
 export type Comentario = {
   id?: number;
   count: number;
@@ -38,7 +36,7 @@ export type Post = {
   comentarios: Comentarios;
 };
 
-const Posts = () => {
+const PostHeader = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -202,13 +200,11 @@ const Posts = () => {
   };
 
   return (
-    <S.Container>
-      <PostHeader />
-      <PostForm />
-      {error && <p>{error}</p>}
-      <PostList />
-    </S.Container>
+    <S.Header>
+      <S.Button>For You</S.Button>
+      <S.Button>Following</S.Button>
+    </S.Header>
   );
 };
 
-export default Posts;
+export default PostHeader;

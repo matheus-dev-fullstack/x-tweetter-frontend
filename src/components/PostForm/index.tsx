@@ -81,7 +81,7 @@ export const PostForm = () => {
             <S.InputFile>
               <label htmlFor="image-upload">
                 <i className="bi bi-file-earmark-image me-2"></i>
-                Adicionar Imagem
+                Add Image
               </label>
               <input
                 name="image"

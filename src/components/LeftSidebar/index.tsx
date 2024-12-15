@@ -139,8 +139,8 @@ const LeftSidebar = () => {
           <p>More</p>
         </S.Link> */}
       </S.Links>
-      <S.PostButton to="/">Post</S.PostButton>
-      <S.ProfileButton>
+      <S.PostButton to="/feed">Post</S.PostButton>
+      <S.ProfileButton href="/perfil">
         <S.ProfileImage src={user?.photo || 'perfil'} alt="" />
         {/* <S.ProfileImage src="perfil" alt="" /> */}
         <S.ProfileName>

@@ -46,7 +46,7 @@ export const Input = styled.textarea`
 `;
 
 export const Options = styled.div`
-  width: 100%;
+  // width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: end;

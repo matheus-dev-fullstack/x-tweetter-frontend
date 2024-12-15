@@ -6,8 +6,6 @@ export const Container = styled.header`
   height: 100vh;
   width: 598px;
   display: flex;
-  margin-left: 264px;
-  margin-right: 350px;
   flex-direction: column;
   border: 1.5px solid rgba(031, 033, 034, 0.6);
   overflow-y: hidden;
@@ -197,15 +195,18 @@ export const FormComment = styled.form`
   display: flex;
   justify-content: space-between;
   border-radius: 3px;
+  margin-bottom: 12px;
+  height: 30px;
 
   input {
     width: 100%;
-    height: 28px;
-    border: none;
-    font-size: 12px;
+    height: 100%;
+    // border: none;
+    font-size: 14px;
     padding: 4px 12px;
     border-radius: 4px 0 0 4px;
-    // background-color: #000;
+    background-color: #000;
+    border: 1px solid ${cores.cinzaSecundario};
     color: ${cores.textoCinza};
 
     :focus {
@@ -215,8 +216,9 @@ export const FormComment = styled.form`
 
   button {
     border-radius: 0 6px 6px 0;
-    border: none;
-    padding: 4px 18px;
+    border: 1px solid white;
+    // height: 29px;
+    padding: 3px 16px;
     font-size: 12px;
   }
 `;

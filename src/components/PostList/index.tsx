@@ -5,7 +5,6 @@ import * as S from './styles';
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 import PostHeader from '../PostHeader';
-import PostList from '../PostList';
 export type Comentario = {
   id?: number;
   count: number;
@@ -38,7 +37,7 @@ export type Post = {
   comentarios: Comentarios;
 };
 
-const Posts = () => {
+const PostList = () => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -202,13 +201,78 @@ const Posts = () => {
   };
 
   return (
-    <S.Container>
-      <PostHeader />
-      <PostForm />
-      {error && <p>{error}</p>}
-      <PostList />
-    </S.Container>
+    <S.PostList>
+      {posts && posts.length > 0 ? (
+        posts.map((post) => (
+          <S.Post key={post.id}>
+            <S.ProfileButton>
+              <S.ProfileImage
+                src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg"
+                alt={post.author.name}
+              />
+              <S.Row>
+                <S.ProfileName>
+                  <p>{post.author.name}</p>
+                  <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
+                  {/* <span>{post.user.username}</span> */}
+                  <span>{post.author.username}</span>
+                  <S.More className="bi bi-three-dots" />
+                </S.ProfileName>
+                <S.TweetText>{post.content}</S.TweetText>
+                {post.imagem && (
+                  <S.ImageDiv>
+                    <img src={post.imagem} alt="Post Content" />
+                  </S.ImageDiv>
+                )}
+                <S.Actions>
+                  <button onClick={() => toggleLike(post.id)}>
+                    <i className="bi bi-heart"></i>
+                    <span>{post.likes ? post.likes.length : 0}</span>
+                  </button>
+                  <button onClick={() => toggleComments(post.id)}>
+                    <i className="bi bi-chat"></i>
+                    <span>{post.comentarios.count}</span>
+                  </button>
+                </S.Actions>
+                {showComments[post.id] && (
+                  <S.Comments>
+                    <S.FormComment
+                      onSubmit={(event) => {
+                        event.preventDefault();
+                        addComment(post.id);
+                      }}
+                    >
+                      <input
+                        type="text"
+                        placeholder="Comentar"
+                        // value={comentario[post.id] || ''}
+                        value={comentario[post.id] || ''}
+                        onChange={(e) =>
+                          setComentario((prev) => ({
+                            ...prev,
+                            [post.id]: e.target.value
+                          }))
+                        }
+                      />
+                      <button type="submit">Enviar</button>
+                    </S.FormComment>
+                    {post.comentarios.details.map((comment) => (
+                      <S.Comment key={comment.id}>
+                        <span>{comment.author.username}</span>
+                        <p>{comment.content}</p>
+                      </S.Comment>
+                    ))}
+                  </S.Comments>
+                )}
+              </S.Row>
+            </S.ProfileButton>
+          </S.Post>
+        ))
+      ) : (
+        <p>Erro ao carregar Posts</p>
+      )}
+    </S.PostList>
   );
 };
 
-export default Posts;
+export default PostList;

@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import { cores } from '../../styles';
 
-export const Container = styled.header`
+export const Container = styled.div`
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 598px;
   display: flex;
+  margin-left: 264px;
   flex-direction: column;
   border: 1.5px solid rgba(031, 033, 034, 0.6);
   overflow-y: hidden;
   scroll-behavior: smooth;
+  // overflow-y: scroll;
 `;
 
 export const Header = styled.div`
