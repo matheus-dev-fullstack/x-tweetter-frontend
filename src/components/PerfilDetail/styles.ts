@@ -61,6 +61,55 @@ export const Banner = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 1;
+  }
+
+  #bannerLabel {
+    :hover {
+      #overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        color: ${cores.branco};
+        font-weight: bold;
+        transition: background-color 0.8s ease;
+        background-color: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+      }
+    }
+  }
+
+  #photoLabel {
+    :hover {
+      #overlay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        color: ${cores.branco};
+        font-weight: bold;
+        background-color: rgba(0, 0, 0, 0.6);
+        transition: background-color 0.8s ease;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #overlay {
+    display: none;
+    transition: background-color 0.8s ease;
+  }
+
+  #banner {
+    display: none;
   }
 `;
 
@@ -71,6 +120,7 @@ export const PerfilPhoto = styled.div`
   position: absolute;
   bottom: -65px;
   left: 16px;
+  z-index: 3;
 
   img {
     width: 100%;
@@ -81,6 +131,7 @@ export const PerfilPhoto = styled.div`
     object-fit: cover;
   }
 `;
+
 export const Details = styled.div`
   width: 100%;
   // height: 250px;

@@ -49,7 +49,7 @@ export const Options = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
   // padding: 10px 4px 0px 4px;
   // border-top: 1px solid ${cores.cinzaSecundario};

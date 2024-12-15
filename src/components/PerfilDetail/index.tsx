@@ -71,16 +71,37 @@ const PerfilDetail = () => {
         <h4>{perfil?.name}</h4>
       </S.Header>
       <S.Banner>
-        <img
-          // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
-          src={perfil?.banner}
-          alt=""
-        />
-        <S.PerfilPhoto>
+        <label id="bannerLabel" htmlFor="banner" className="w-100">
+          <span id="overlay">Editar banner</span>
           <img
             // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
-            src={perfil?.photo}
+            src={perfil?.banner}
             alt=""
+            className=""
+          />
+        </label>
+        <input
+          className=""
+          id="banner"
+          type="file"
+          accept="image/*"
+          name="banner"
+        />
+        <S.PerfilPhoto>
+          <label id="photoLabel" htmlFor="photo">
+            <span id="overlay">Editar foto</span>
+            <img
+              // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
+              src={perfil?.photo}
+              alt=""
+            />
+          </label>
+          <input
+            className="d-none"
+            id="photo"
+            type="file"
+            accept="image/*"
+            name="photo"
           />
         </S.PerfilPhoto>
       </S.Banner>
