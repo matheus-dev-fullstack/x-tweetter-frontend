@@ -5,6 +5,7 @@ import * as S from './styles';
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 import PostHeader from '../PostHeader';
+
 export type Comentario = {
   id?: number;
   count: number;
@@ -38,7 +39,11 @@ export type Post = {
   comentarios: Comentarios;
 };
 
-const PostList = () => {
+interface PostListPerfilProps {
+  username: string | undefined;
+}
+
+const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -67,7 +72,7 @@ const PostList = () => {
 
       try {
         const response = await fetch(
-          'http://127.0.0.1:8000/feed/posts/',
+          'http://127.0.0.1:8000/feed/posts/user-posts/${username}/',
           // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
           {
             headers: {
@@ -102,7 +107,7 @@ const PostList = () => {
     };
 
     fetchPosts();
-  }, [navigate]);
+  }, [username]);
 
   if (loading) {
     return <p>Carregando...</p>;
@@ -212,7 +217,7 @@ const PostList = () => {
                 alt={post.author.name}
               />
               <S.Row>
-                <S.ProfileName to={`/perfil/`}>
+                <S.ProfileName to={`/perfil/${post.author.id}/`}>
                   <p>{post.author.name}</p>
                   <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                   {/* <span>{post.user.username}</span> */}
@@ -276,4 +281,4 @@ const PostList = () => {
   );
 };
 
-export default PostList;
+export default PostListPerfil;

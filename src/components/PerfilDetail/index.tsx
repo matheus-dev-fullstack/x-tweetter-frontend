@@ -5,6 +5,7 @@ import * as S from './styles';
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 import PostList from '../PostList';
+import PostListPerfil from '../PostListPerfil';
 
 type Perfil = {
   name: string;
@@ -30,7 +31,7 @@ const PerfilDetail = () => {
 
       try {
         const response = await fetch(
-          'http://127.0.0.1:8000/auth/perfil/',
+          'http://127.0.0.1:8000/auth/perfil/ ',
           // 'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
           {
             headers: {
@@ -68,7 +69,6 @@ const PerfilDetail = () => {
         <button>
           <i className="bi bi-arrow-left-short"></i>
         </button>
-        {/* <h4>Matheus Oliveira</h4> */}
         <h4>{perfil?.name}</h4>
       </S.Header>
       <S.Banner>
@@ -118,7 +118,7 @@ const PerfilDetail = () => {
           </span>
         </S.Followers>
       </S.Details>
-      <PostList />
+      <PostListPerfil username={perfil?.username} />
     </S.Container>
   );
 };
