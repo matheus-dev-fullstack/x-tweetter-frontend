@@ -108,6 +108,7 @@ export const ProfileName = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 
   p,
   span {
@@ -251,4 +252,11 @@ export const Comment = styled.div`
     line-height: 16px;
     margin: 0;
   }
+`;
+
+export const CommentUser = styled(Link)`
+  margin-right: 12px;
+  color: ${cores.azul};
+  font-size: 14px;
+  text-decoration: none;
 `;

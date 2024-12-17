@@ -66,7 +66,7 @@ const PerfilDetail = () => {
   return (
     <S.Container>
       <S.Header>
-        <button>
+        <button onClick={() => navigate(-1)}>
           <i className="bi bi-arrow-left-short"></i>
         </button>
         <h4>{perfil?.name}</h4>

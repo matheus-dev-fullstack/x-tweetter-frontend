@@ -259,7 +259,11 @@ const PostList = () => {
                     </S.FormComment>
                     {post.comentarios.details.map((comment) => (
                       <S.Comment key={comment.id}>
-                        <span>{comment.author.username}</span>
+                        <S.CommentUser
+                          to={`/profile/${comment.author.username}/`}
+                        >
+                          {comment.author.username}
+                        </S.CommentUser>
                         <p>{comment.content}</p>
                       </S.Comment>
                     ))}

@@ -108,6 +108,7 @@ export const ProfileName = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 
   p,
   span {

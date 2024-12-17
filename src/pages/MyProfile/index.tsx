@@ -4,7 +4,7 @@ import PerfilDetail from '../../components/PerfilDetail';
 import RightSidebar from '../../components/RightSidebar';
 import { Container } from './styles';
 
-const Perfil = () => {
+const MyProfile = () => {
   return (
     <Container className="container d-flex justify-content-between">
       <LeftSidebar />
@@ -13,4 +13,4 @@ const Perfil = () => {
     </Container>
   );
 };
-export default Perfil;
+export default MyProfile;

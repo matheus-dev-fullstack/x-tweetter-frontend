@@ -5,6 +5,7 @@ import * as S from './styles';
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 import PostHeader from '../PostHeader';
+import { CommentUser } from '../PostList/styles';
 
 export type Comentario = {
   id?: number;
@@ -264,7 +265,11 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
                     </S.FormComment>
                     {post.comentarios.details.map((comment) => (
                       <S.Comment key={comment.id}>
-                        <span>{comment.author.username}</span>
+                        <CommentUser
+                          to={`/profile/${comment.author.username}/`}
+                        >
+                          {comment.author.username}
+                        </CommentUser>
                         <p>{comment.content}</p>
                       </S.Comment>
                     ))}

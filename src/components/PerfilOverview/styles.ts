@@ -125,8 +125,8 @@ export const PerfilPhoto = styled.div`
   z-index: 3;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     border: 4px solid black;
 
