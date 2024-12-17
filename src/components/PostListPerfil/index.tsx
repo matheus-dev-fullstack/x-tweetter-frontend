@@ -72,7 +72,7 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
 
       try {
         const response = await fetch(
-          'http://127.0.0.1:8000/feed/posts/user-posts/${username}/',
+          `http://127.0.0.1:8000/feed/posts/user-posts/${username}/`,
           // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
           {
             headers: {
@@ -217,7 +217,7 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
                 alt={post.author.name}
               />
               <S.Row>
-                <S.ProfileName to={`/perfil/${post.author.id}/`}>
+                <S.ProfileName to={`/profile/{post.author.username}/`}>
                   <p>{post.author.name}</p>
                   <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                   {/* <span>{post.user.username}</span> */}

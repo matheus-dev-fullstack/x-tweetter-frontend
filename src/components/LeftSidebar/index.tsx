@@ -130,7 +130,7 @@ const LeftSidebar = () => {
           <i className="bi bi-lightning-charge" />
           <p>Verified Orgs</p>
         </S.Link> */}
-        <S.Link href="/perfil" rel="noopener noreferrer">
+        <S.Link href="/my-profile/" rel="noopener noreferrer">
           <i className="bi bi-person" />
           <p>Profile</p>
         </S.Link>
@@ -140,7 +140,7 @@ const LeftSidebar = () => {
         </S.Link> */}
       </S.Links>
       <S.PostButton to="/feed">Post</S.PostButton>
-      <S.ProfileButton href="/perfil">
+      <S.ProfileButton href="/my-profile">
         <S.ProfileImage src={user?.photo || 'perfil'} alt="" />
         {/* <S.ProfileImage src="perfil" alt="" /> */}
         <S.ProfileName>

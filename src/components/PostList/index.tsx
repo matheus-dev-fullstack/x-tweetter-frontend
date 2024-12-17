@@ -212,7 +212,7 @@ const PostList = () => {
                 alt={post.author.name}
               />
               <S.Row>
-                <S.ProfileName to={`/perfil/`}>
+                <S.ProfileName to={`/profile/${post.author.username}`}>
                   <p>{post.author.name}</p>
                   <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                   {/* <span>{post.user.username}</span> */}

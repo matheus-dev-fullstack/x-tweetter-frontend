@@ -4,6 +4,7 @@ import { RegisterForm } from './components/RegisterForm';
 import Login from './pages/Login';
 import Feed from './pages/Feed';
 import Perfil from './pages/Perfil';
+import PerfilOverview from './components/PerfilOverview';
 
 const Rotas = () => (
   <Routes>
@@ -11,7 +12,8 @@ const Rotas = () => (
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<RegisterForm />} />
     <Route path="/feed" element={<Feed />} />
-    <Route path="/perfil/" element={<Perfil />} />
+    <Route path="/my-profile/" element={<Perfil />} />
+    <Route path="/profile/:username" element={<PerfilOverview />} />
     {/* <Route path="/perfil/:id" element={<Perfil />} /> */}
   </Routes>
 );
