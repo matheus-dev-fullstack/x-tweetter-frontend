@@ -74,31 +74,22 @@ const PerfilOverview = () => {
         <h4>{perfil?.name}</h4>
       </S.Header>
       <S.Banner>
-        <label id="bannerLabel" htmlFor="banner" className="w-100">
-          <span id="overlay">Editar banner</span>
+        <span id="bannerLabel" className="w-100">
           <img
             // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
             src={perfil?.banner}
             alt=""
             className=""
           />
-        </label>
-        <input
-          className=""
-          id="banner"
-          type="file"
-          accept="image/*"
-          name="banner"
-        />
+        </span>
         <S.PerfilPhoto>
-          <label id="photoLabel" htmlFor="photo">
-            <span id="overlay">Editar foto</span>
+          <span id="photoLabel">
             <img
               // src="https://img.pikbest.com/origin/09/32/46/84rpIkbEsTRXW.jpg!w700wp"
               src={perfil?.photo}
               alt=""
             />
-          </label>
+          </span>
           <input
             className="d-none"
             id="photo"

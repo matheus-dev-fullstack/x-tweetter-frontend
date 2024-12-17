@@ -77,10 +77,13 @@ export const ProfileButton = styled.button`
   background-color: transparent;
   // background-color: ${cores.cinzaSecundario};
 `;
-export const More = styled.i`
+export const Follow = styled.button<{ isFollowing: boolean }>`
   margin-left: auto;
   color: ${cores.textoCinza};
-  font-size: 18px;
+  // color: ${(props) => (props.isFollowing ? 'red' : '${cores.textoCinza}')};
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
 `;
 export const Verified = styled.i`
   margin-left: 6px;

@@ -43,6 +43,7 @@ const PostList = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isFollowing, setIsFollowing] = useState(false);
   const [comentario, setComentario] = useState<{ [key: number]: string }>({});
   const [showComments, setShowComments] = useState<{ [key: number]: boolean }>(
     {}
@@ -201,6 +202,33 @@ const PostList = () => {
     }
   };
 
+  const handleFollow = async (id: any, event: React.MouseEvent) => {
+    event.preventDefault();
+    const token = localStorage.getItem('token');
+
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/auth/perfil/${id}/follow/`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (response.ok) {
+        alert(`Agora você está seguindo`);
+        setIsFollowing(true);
+      } else {
+        alert('Erro ao seguir o usuário');
+      }
+    } catch (error) {
+      alert('Erro na requisição de follow:');
+    }
+  };
+
   return (
     <S.PostList>
       {posts && posts.length > 0 ? (
@@ -217,7 +245,13 @@ const PostList = () => {
                   <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                   {/* <span>{post.user.username}</span> */}
                   <span>{post.author.username}</span>
-                  <S.More className="bi bi-three-dots" />
+                  <S.Follow
+                    isFollowing={isFollowing}
+                    onClick={(event) => handleFollow(post.author.id, event)}
+                  >
+                    + Follow
+                  </S.Follow>
+                  {/* <S.More className="bi bi-three-dots" /> */}
                 </S.ProfileName>
                 <S.TweetText>{post.content}</S.TweetText>
                 {post.imagem && (
