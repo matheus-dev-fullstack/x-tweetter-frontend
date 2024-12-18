@@ -58,10 +58,10 @@ export const RegisterForm = () => {
       const token = response.data.access_token;
       if (token) {
         localStorage.setItem('token', token);
-        navigate('/feed');
+        navigate('/');
       } else {
         console.log('Token não recebido após o cadastro.');
-        navigate('/login');
+        navigate('/home');
       }
       // navigate('/feed');
     } catch (error: any) {
@@ -105,7 +105,7 @@ export const RegisterForm = () => {
           <S.Label htmlFor="photo">Foto de Perfil:</S.Label>
           <S.InputFile
             // name="photo"
-            {...register('photo')}
+            {...register('photo', { required: 'Adicione uma foto de perfil' })}
             className="form-control form-control-sm"
             type="file"
             accept="image/*"
@@ -113,7 +113,7 @@ export const RegisterForm = () => {
           />
           <S.Label htmlFor="banner">Banner do Perfil:</S.Label>
           <S.InputFile
-            {...register('banner')}
+            {...register('banner', { required: 'Adicione um Banner' })}
             // name="banner"
             className="form-control form-control-sm"
             type="file"

@@ -114,13 +114,13 @@ const RightSidebar = () => (
       <S.ShowMore>Show more</S.ShowMore>
     </S.Card>
     <S.Terms>
-      <a href="/feed">Terms od Service</a>
-      <a href="/feed">Privacy Policy</a>
-      <a href="/feed">Cookie Policy</a>
-      <a href="/feed">Accessibility</a>
-      <a href="/feed">Ads info</a>
-      <a href="/feed">More...</a>
-      <a href="/feed">© 2024 X Corp.</a>
+      <a href="/">Terms od Service</a>
+      <a href="/">Privacy Policy</a>
+      <a href="/">Cookie Policy</a>
+      <a href="/">Accessibility</a>
+      <a href="/">Ads info</a>
+      <a href="/">More...</a>
+      <a href="/">© 2024 X Corp.</a>
     </S.Terms>
   </S.Sidebar>
 );

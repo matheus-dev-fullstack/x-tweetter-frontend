@@ -20,7 +20,7 @@ const LeftSidebar = () => {
 
       if (!token) {
         console.error('Token não encontrado. Redirecionando para login.');
-        navigate('/login');
+        navigate('/home');
         return;
       }
 
@@ -54,11 +54,11 @@ const LeftSidebar = () => {
 
   return (
     <S.Sidebar>
-      <S.Logo href="/">
+      <S.Logo href="/home">
         <img src={logo} alt="" />
       </S.Logo>
       <S.Links>
-        <S.Link href="/feed" rel="noopener noreferrer" id="selected">
+        <S.Link href="/" rel="noopener noreferrer" id="selected">
           <i className="bi bi-house-door" />
           <p>Home</p>
         </S.Link>
@@ -139,7 +139,7 @@ const LeftSidebar = () => {
           <p>More</p>
         </S.Link> */}
       </S.Links>
-      <S.PostButton to="/feed">Post</S.PostButton>
+      <S.PostButton to="/">Post</S.PostButton>
       <S.ProfileButton href="/my-profile">
         <S.ProfileImage src={user?.photo || 'perfil'} alt="" />
         {/* <S.ProfileImage src="perfil" alt="" /> */}

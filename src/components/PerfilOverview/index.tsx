@@ -12,6 +12,8 @@ type Perfil = {
   username: string;
   photo: string;
   banner: string;
+  followers_count: number;
+  following_count: number;
 };
 
 const PerfilOverview = () => {
@@ -26,7 +28,7 @@ const PerfilOverview = () => {
       const token = localStorage.getItem('token');
 
       if (!token) {
-        navigate('/login');
+        navigate('/home');
         return;
       }
 
@@ -48,7 +50,7 @@ const PerfilOverview = () => {
           if (errorData.code === 'token_not_valid') {
             console.error('Token inválido, redirecionando para login.');
             localStorage.removeItem('token');
-            navigate('/login');
+            navigate('/home');
             return;
           }
         }
@@ -104,10 +106,10 @@ const PerfilOverview = () => {
         <S.Username>{perfil?.username}</S.Username>
         <S.Followers>
           <span>
-            <b>1</b> Following
+            <b>{perfil?.following_count}</b> Following
           </span>
           <span>
-            <b>0</b> Followers
+            <b>{perfil?.followers_count}</b> Followers
           </span>
         </S.Followers>
       </S.Details>

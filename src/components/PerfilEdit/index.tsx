@@ -51,10 +51,10 @@ export const PerfilEdit = () => {
       const token = response.data.access_token;
       if (token) {
         localStorage.setItem('token', token);
-        navigate('/feed');
+        navigate('/');
       } else {
         console.log('Token não recebido após o cadastro.');
-        navigate('/login');
+        navigate('/home');
       }
       // navigate('/feed');
     } catch (error) {

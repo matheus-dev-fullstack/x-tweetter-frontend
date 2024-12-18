@@ -25,7 +25,7 @@ const PerfilDetail = () => {
       const token = localStorage.getItem('token');
 
       if (!token) {
-        navigate('/login');
+        navigate('/home');
         return;
       }
 
@@ -47,7 +47,7 @@ const PerfilDetail = () => {
           if (errorData.code === 'token_not_valid') {
             console.error('Token inválido, redirecionando para login.');
             localStorage.removeItem('token');
-            navigate('/login');
+            navigate('/home');
             return;
           }
         }

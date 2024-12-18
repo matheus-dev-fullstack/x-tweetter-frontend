@@ -24,7 +24,7 @@ export const PostForm = () => {
       const token = localStorage.getItem('token');
       if (!token) {
         console.error('Token não encontrado, redirecionando para login.');
-        navigate('/login');
+        navigate('/home');
         return;
       }
 

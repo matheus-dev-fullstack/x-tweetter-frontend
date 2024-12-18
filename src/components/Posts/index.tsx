@@ -61,7 +61,7 @@ const Posts = () => {
 
       if (!token) {
         console.error('Token não encontrado, redirecionando para login.');
-        navigate('/login');
+        navigate('/home');
         return;
       }
 
@@ -84,7 +84,7 @@ const Posts = () => {
           if (errorData.code === 'token_not_valid') {
             console.error('Token inválido, redirecionando para login.');
             localStorage.removeItem('token');
-            navigate('/login');
+            navigate('/home');
           }
           throw new Error('Erro na requisição');
         }

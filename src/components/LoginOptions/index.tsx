@@ -14,8 +14,8 @@ export const LoginOptions = () => {
         <S.TextSubscribe>Inscreva-se hoje</S.TextSubscribe>
         <S.SecondaryButton to={`/register`}>Criar conta</S.SecondaryButton>
         <S.Terms>
-          Ao se inscrever, você concorda com os <span>Termos de Serviço</span> e{' '}
-          <br />a <span>Política de Privacidade</span>, incluindo o{' '}
+          Ao se inscrever, você concorda com os <span>Termos de Serviço</span> e
+          <br />a <span>Política de Privacidade</span>, incluindo o
           <span>Uso de Cookies</span>.
         </S.Terms>
         <S.LoginTitle>Já tem uma conta?</S.LoginTitle>

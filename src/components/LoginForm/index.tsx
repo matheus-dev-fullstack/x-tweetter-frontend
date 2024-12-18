@@ -34,7 +34,7 @@ export const LoginForm = () => {
       localStorage.setItem('token', token);
 
       console.log('Resposta do servidor:', response.data);
-      navigate('/feed');
+      navigate('/');
     } catch (error) {
       alert('Erro no login');
     }
@@ -63,7 +63,7 @@ export const LoginForm = () => {
           />
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Login</S.ButtonSubmit>
-            <S.CancelButton to={`/`}>Cancelar</S.CancelButton>
+            <S.CancelButton to={`/home`}>Cancelar</S.CancelButton>
           </S.DivButtons>
         </S.Form>
       </S.Options>
