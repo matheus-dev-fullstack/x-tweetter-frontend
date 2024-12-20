@@ -97,29 +97,24 @@ export const PerfilDetail = () => {
       if (data.name) formData.append('name', data.name);
       if (data.username) formData.append('username', data.username);
 
-      // if (selectedPhoto) {
-      //   formData.append('photo', selectedPhoto);
-      // } else if (data.photo) {
-      //   formData.append('photo', data.photo);
-      // }
-      // if (selectedPhoto) {
-      //   formData.append('photo', selectedPhoto);
-      // } else if (data.photo && data.photo !== perfil?.photo) {
-      //   formData.append('photo', data.photo);
-      // }
       if (selectedPhoto) {
         formData.append('photo', selectedPhoto);
+      } else if (data.photo) {
+        formData.append('photo', data.photo);
       }
-
-      // if (selectedBanner) {
-      //   formData.append('banner', selectedBanner);
-      // } else if (data.banner) {
-      //   formData.append('banner', data.banner);
-      // }
       if (selectedBanner) {
-        formData.append('banner', selectedBanner);
+        formData.append('photo', selectedBanner);
+      } else if (data.banner) {
+        formData.append('photo', data.banner);
       }
 
+      // if (data.banner && data.banner instanceof File) {
+      //   formData.append('banner', data.banner);
+      // } else if (!data.banner) {
+      //   formData.append('banner', '');
+      // }
+
+      // Envia a requisição PATCH para o backend
       await axios.patch(
         'http://127.0.0.1:8000/auth/perfil/editar-perfil/',
         formData,
@@ -133,20 +128,14 @@ export const PerfilDetail = () => {
 
       alert('Perfil atualizado com sucesso!');
       // console.log(formData);
-      // console.log(data.banner);
-      console.log('Foto selecionada:', selectedPhoto);
-      console.log('Banner selecionado:', selectedBanner);
+      // console.log(data.photo);
       navigate('/');
     } catch (error: any) {
-      console.log('Foto selecionada:', selectedPhoto);
-      console.log('Banner selecionado:', selectedBanner);
       console.error(
         'Erro ao atualizar perfil:',
         error.response?.data || error.message
       );
       alert('Erro ao atualizar perfil. Verifique os campos e tente novamente.');
-      console.log('Foto selecionada:', selectedPhoto);
-      console.log('Banner selecionado:', selectedBanner);
     }
   };
 
@@ -172,8 +161,7 @@ export const PerfilDetail = () => {
             id="banner"
             type="file"
             accept="image/*"
-            // {...register('banner')}
-            {...register('banner', { setValueAs: (value) => value[0] })} // Garante que o valor é um arquivo
+            {...register('banner')}
             onChange={handleBannerChange}
             className="hidden"
             // onChange={() => setIsBannerEdited(true)}
@@ -194,8 +182,7 @@ export const PerfilDetail = () => {
               id="photo"
               type="file"
               accept="image/*"
-              // {...register('photo')}
-              {...register('photo', { setValueAs: (value) => value[0] })} // Garante que o valor é um arquivo
+              {...register('photo')}
               onChange={handlePhotoChange}
               className="hidden"
 
