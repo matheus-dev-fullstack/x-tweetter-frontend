@@ -53,7 +53,6 @@ export const Header = styled.div`
 `;
 
 export const Banner = styled.div`
-  background-color: blue;
   width: 100%;
   height: 190px;
   display: flex;

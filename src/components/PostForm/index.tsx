@@ -18,6 +18,9 @@ export const PostForm = () => {
 
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [displayedImageName, setDisplayedImageName] = useState<string | null>(
+    null
+  );
 
   const onSubmit = async (data: Post) => {
     try {
@@ -61,9 +64,20 @@ export const PostForm = () => {
       alert('Erro ao criar post:');
     }
   };
+  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files && e.target.files[0]) {
+  //     setSelectedImage(e.target.files[0]); // Armazena apenas a primeira imagem selecionada
+  //   }
+  // };
+
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setSelectedImage(e.target.files[0]); // Armazena apenas a primeira imagem selecionada
+      const file = e.target.files[0];
+      setSelectedImage(file);
+
+      const truncatedName =
+        file.name.length > 10 ? `${file.name.substring(0, 10)}...` : file.name;
+      setDisplayedImageName(truncatedName);
     }
   };
 
@@ -77,7 +91,7 @@ export const PostForm = () => {
         />
         {errors.content && <p>{errors.content.message}</p>}
         <S.Options>
-          <S.Attachments>
+          <S.Attachments className="me-auto">
             <S.InputFile>
               <label htmlFor="image-upload">
                 <i className="bi bi-file-earmark-image me-2"></i>
@@ -92,7 +106,7 @@ export const PostForm = () => {
               />
             </S.InputFile>
 
-            {selectedImage && <p>Imagem selecionada: {selectedImage.name}</p>}
+            {displayedImageName && <p> {displayedImageName}</p>}
           </S.Attachments>
           <S.ButtonSubmit type="submit">Post</S.ButtonSubmit>
         </S.Options>

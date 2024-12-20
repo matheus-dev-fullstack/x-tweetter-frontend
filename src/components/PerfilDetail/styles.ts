@@ -53,7 +53,6 @@ export const Header = styled.div`
 `;
 
 export const Banner = styled.div`
-  background-color: blue;
   width: 100%;
   height: 190px;
   display: flex;
@@ -174,5 +173,30 @@ export const Followers = styled.div`
 
   b {
     color: ${cores.branco};
+  }
+`;
+
+export const Name = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-left: -4px;
+  margin-top: 78px;
+
+  input {
+    background-color: transparent;
+    color: ${cores.branco};
+    border: none;
+    font-size: 24px;
+    padding: 0px 6px;
+    font-weight: 500px;
+  }
+
+  button {
+    height: 28px;
+    padding: 4px 10px 3px 8px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500px;
+    border-radius: 3px;
   }
 `;

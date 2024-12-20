@@ -64,6 +64,7 @@ export const Attachments = styled.div`
 `;
 export const InputFile = styled.div`
   display: flex;
+  width: 900px;
   // margin-left: 6px;
 
   input[type='file'] {
@@ -71,6 +72,7 @@ export const InputFile = styled.div`
   }
 
   label {
+    width: 128px;
     cursor: pointer;
     // background-color: ${cores.azul};
     color: ${cores.azul};
@@ -86,6 +88,10 @@ export const InputFile = styled.div`
 
     i {
       font-size: 18px;
+    }
+
+    p {
+      width: 150px;
     }
   }
 `;

@@ -9,6 +9,7 @@ export const Sidebar = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   margin-right: 60px;
   overflow-y: hidden;
   position: fixed;
@@ -132,7 +133,7 @@ export const ProfileButton = styled.a`
   padding-left: 14px;
   padding-right: 14px;
   padding-top: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 24px;
   border: none;
   background-color: transparent;
   transition: background-color 0.2s ease;
@@ -152,7 +153,8 @@ export const ProfileImage = styled.img`
   height: 42px;
   width: 42px;
   object-fit: cover;
-  border-radius: 4px;
+  border-radius: 50%;
+  // transform: scale(2);
 `;
 export const ProfileName = styled.div`
   height: 42px;
@@ -185,7 +187,7 @@ export const ProfileName = styled.div`
     margin-left: 3px;
   }
 `;
-export const Button = styled(Link)`
+export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;

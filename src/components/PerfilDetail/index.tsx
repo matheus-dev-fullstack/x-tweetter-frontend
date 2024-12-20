@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import PostListPerfil from '../PostListPerfil';
 
 type Perfil = {
   name?: string;
@@ -30,7 +31,7 @@ export const PerfilDetail = () => {
     const file = event.target.files ? event.target.files[0] : null;
     if (file) {
       setSelectedPhoto(file);
-      setPhotoPreview(URL.createObjectURL(file)); // Atualiza o preview da imagem
+      setPhotoPreview(URL.createObjectURL(file));
     }
   };
   const handleBannerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,7 +66,6 @@ export const PerfilDetail = () => {
         });
         setPerfil(response.data);
         setValue('name', response.data.name);
-        setValue('username', response.data.username);
         setValue('photo', response.data.photo);
         setValue('banner', response.data.banner);
 
@@ -97,25 +97,10 @@ export const PerfilDetail = () => {
       if (data.name) formData.append('name', data.name);
       if (data.username) formData.append('username', data.username);
 
-      // if (selectedPhoto) {
-      //   formData.append('photo', selectedPhoto);
-      // } else if (data.photo) {
-      //   formData.append('photo', data.photo);
-      // }
-      // if (selectedPhoto) {
-      //   formData.append('photo', selectedPhoto);
-      // } else if (data.photo && data.photo !== perfil?.photo) {
-      //   formData.append('photo', data.photo);
-      // }
       if (selectedPhoto) {
         formData.append('photo', selectedPhoto);
       }
 
-      // if (selectedBanner) {
-      //   formData.append('banner', selectedBanner);
-      // } else if (data.banner) {
-      //   formData.append('banner', data.banner);
-      // }
       if (selectedBanner) {
         formData.append('banner', selectedBanner);
       }
@@ -132,8 +117,6 @@ export const PerfilDetail = () => {
       );
 
       alert('Perfil atualizado com sucesso!');
-      // console.log(formData);
-      // console.log(data.banner);
       console.log('Foto selecionada:', selectedPhoto);
       console.log('Banner selecionado:', selectedBanner);
       navigate('/');
@@ -163,30 +146,22 @@ export const PerfilDetail = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <S.Banner>
-          {/* Banner */}
-          <label htmlFor="banner" className="w-100">
+          <label htmlFor="banner" id="bannerLabel" className="w-100">
             <span id="overlay">Editar banner</span>
             <img src={bannerPreview} alt="Banner" />
           </label>
+          <span id="overlay">Editar Banner</span>
           <input
             id="banner"
             type="file"
             accept="image/*"
-            // {...register('banner')}
-            {...register('banner', { setValueAs: (value) => value[0] })} // Garante que o valor é um arquivo
+            {...register('banner', { setValueAs: (value) => value[0] })}
             onChange={handleBannerChange}
             className="hidden"
-            // onChange={() => setIsBannerEdited(true)}
-            // style={{ display: isBannerEdited ? 'block' : 'none' }}
           />
 
-          {/* Foto de Perfil */}
           <S.PerfilPhoto>
-            <label
-              id="photoLabel"
-              htmlFor="photo"
-              // className={isPhotoEdited ? 'hidden' : 'visible'}
-            >
+            <label id="photoLabel" htmlFor="photo">
               <span id="overlay">Editar foto</span>
               <img src={photoPreview} alt="Foto de perfil" />
             </label>
@@ -194,26 +169,31 @@ export const PerfilDetail = () => {
               id="photo"
               type="file"
               accept="image/*"
-              // {...register('photo')}
-              {...register('photo', { setValueAs: (value) => value[0] })} // Garante que o valor é um arquivo
+              {...register('photo', { setValueAs: (value) => value[0] })}
               onChange={handlePhotoChange}
               className="hidden"
-
-              // style={{ display: isPhotoEdited ? 'block' : 'none' }}
             />
           </S.PerfilPhoto>
         </S.Banner>
-
         <S.Details>
-          <label htmlFor="name">Nome</label>
-          <input type="text" {...register('name')} />
-          <label htmlFor="username">Nome de Usuário</label>
-          <input type="text" {...register('username')} />
-          <button type="submit" className="btn btn-light">
-            Salvar
-          </button>
+          <S.Name>
+            <input type="text" {...register('name')} />
+            <button type="submit" className="btn btn-light">
+              Salvar alterações
+            </button>
+          </S.Name>
+          <S.Username>{perfil?.username}</S.Username>
+          <S.Followers>
+            <span>
+              <b>{perfil?.following_count}</b> Following
+            </span>
+            <span>
+              <b>{perfil?.followers_count}</b> Followers
+            </span>
+          </S.Followers>
         </S.Details>
       </form>
+      <PostListPerfil username={perfil?.username} />
     </S.Container>
   );
 };

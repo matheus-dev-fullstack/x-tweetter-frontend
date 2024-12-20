@@ -86,8 +86,9 @@ export const ProfileButton = styled(Link)`
   display: flex;
   align-items: center;
   margin-top: 20px;
+  margin-right: 30px;
   margin-bottom: 28px;
-  // padding-left: 8px;
+  padding-left: 8px;
   padding-right: 14px;
   border-radius: 34px;
   border: none;
