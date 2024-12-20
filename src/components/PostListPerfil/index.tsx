@@ -214,11 +214,13 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
           <S.Post key={post.id}>
             <S.ProfileButton>
               <S.ProfileImage
-                src="https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg"
-                alt={post.author.name}
+                src={
+                  post.author.photo ??
+                  'https://img.freepik.com/vetores-premium/icone-de-perfil-de-usuario-em-estilo-plano-ilustracao-em-vetor-avatar-membro-em-fundo-isolado-conceito-de-negocio-de-sinal-de-permissao-humana_157943-15752.jpg'
+                }
               />
               <S.Row>
-                <S.ProfileName to={`/profile/{post.author.username}/`}>
+                <S.ProfileName to={`/profile/${post.author.username}/`}>
                   <p>{post.author.name}</p>
                   <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                   {/* <span>{post.user.username}</span> */}

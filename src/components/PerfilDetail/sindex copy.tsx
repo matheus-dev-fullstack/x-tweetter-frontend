@@ -17,28 +17,6 @@ export const PerfilDetail = () => {
   const navigate = useNavigate();
   const [perfil, setPerfil] = useState<Perfil | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [photoPreview, setPhotoPreview] = useState<string | undefined>(
-    undefined
-  );
-  const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
-
-  // const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files ? event.target.files[0] : null;
-  //   if (file) {
-  //     setSelectedPhoto(file);
-  //     setPhotoPreview(URL.createObjectURL(file));
-  //   }
-  // };
-
-  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ? event.target.files[0] : null;
-    if (file) {
-      setSelectedPhoto(file);
-      setPhotoPreview(URL.createObjectURL(file));
-    } else {
-      setPhotoPreview(undefined);
-    }
-  };
 
   const {
     register,
@@ -88,24 +66,17 @@ export const PerfilDetail = () => {
       }
 
       const formData = new FormData();
-
       if (data.name) formData.append('name', data.name);
       if (data.username) formData.append('username', data.username);
 
-      if (selectedPhoto) {
-        formData.append('photo', selectedPhoto);
-      } else if (data.photo) {
+      if (data.photo && data.photo instanceof File) {
         formData.append('photo', data.photo);
       }
 
-      // Verifica o banner da mesma forma
       if (data.banner && data.banner instanceof File) {
         formData.append('banner', data.banner);
-      } else if (!data.banner) {
-        formData.append('banner', '');
       }
 
-      // Envia a requisição PATCH para o backend
       await axios.patch(
         'http://127.0.0.1:8000/auth/perfil/editar-perfil/',
         formData,
@@ -118,8 +89,6 @@ export const PerfilDetail = () => {
       );
 
       alert('Perfil atualizado com sucesso!');
-      console.log(formData);
-      console.log(data.photo);
       navigate('/my-profile/');
     } catch (error: any) {
       console.error(
@@ -143,12 +112,7 @@ export const PerfilDetail = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <S.Banner>
-          {/* Banner */}
-          <label
-            htmlFor="banner"
-            className="w-100"
-            // className={isBannerEdited ? 'hidden' : 'visible'}
-          >
+          <label id="bannerLabel" htmlFor="banner" className="w-100">
             <span id="overlay">Editar banner</span>
             <img
               src={
@@ -158,7 +122,6 @@ export const PerfilDetail = () => {
                   ? perfil.banner
                   : ''
               }
-              // src={photoPreview}
               alt="Banner"
             />
           </label>
@@ -167,28 +130,19 @@ export const PerfilDetail = () => {
             type="file"
             accept="image/*"
             {...register('banner')}
-            onChange={handlePhotoChange}
-            // onChange={() => setIsBannerEdited(true)}
-            // style={{ display: isBannerEdited ? 'block' : 'none' }}
           />
 
-          {/* Foto de Perfil */}
           <S.PerfilPhoto>
-            <label
-              id="photoLabel"
-              htmlFor="photo"
-              // className={isPhotoEdited ? 'hidden' : 'visible'}
-            >
+            <label id="photoLabel" htmlFor="photo">
               <span id="overlay">Editar foto</span>
               <img
-                // src={
-                //   photoFile && photoFile instanceof File
-                //     ? URL.createObjectURL(photoFile)
-                //     : perfil?.photo && typeof perfil.photo === 'string'
-                //     ? perfil.photo
-                //     : ''
-                // }
-                src={photoPreview}
+                src={
+                  photoFile && photoFile instanceof File
+                    ? URL.createObjectURL(photoFile)
+                    : perfil?.photo && typeof perfil.photo === 'string'
+                    ? perfil.photo
+                    : ''
+                }
                 alt="Foto de perfil"
               />
             </label>
@@ -197,12 +151,9 @@ export const PerfilDetail = () => {
               type="file"
               accept="image/*"
               {...register('photo')}
-              onChange={handlePhotoChange}
-              // style={{ display: isPhotoEdited ? 'block' : 'none' }}
             />
           </S.PerfilPhoto>
         </S.Banner>
-
         <S.Details>
           <label htmlFor="name">Nome</label>
           <input type="text" {...register('name')} />

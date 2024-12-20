@@ -144,6 +144,16 @@ export const Details = styled.div`
   padding-bottom: 12px;
   // background-color: red;
 
+  label {
+    font-size: 22px;
+    margin-top: 82px;
+    color: ${cores.textoClaro};
+    margin-bottom: 0;
+    cursor: pointer;
+  }
+  input {
+    // display: none;
+  }
   h4 {
     margin-top: 82px;
     color: ${cores.textoClaro};

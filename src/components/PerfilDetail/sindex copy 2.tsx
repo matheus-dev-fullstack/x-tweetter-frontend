@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
+// Codigo com input de imagens funcionano já
+
 type Perfil = {
   name?: string;
   username?: string;
@@ -17,26 +19,17 @@ export const PerfilDetail = () => {
   const navigate = useNavigate();
   const [perfil, setPerfil] = useState<Perfil | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [photoPreview, setPhotoPreview] = useState<string | undefined>(
-    undefined
-  );
-  const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null);
-
-  // const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files ? event.target.files[0] : null;
-  //   if (file) {
-  //     setSelectedPhoto(file);
-  //     setPhotoPreview(URL.createObjectURL(file));
-  //   }
-  // };
+  const [photoPreview, setPhotoPreview] = useState<string | null>(null); // Estado para a imagem de visualização
+  const [selectedPhoto, setSelectedPhoto] = useState<File | null>(null); // Estado para o arquivo da imagem
 
   const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files ? event.target.files[0] : null;
     if (file) {
+      // Atualiza o estado com a imagem selecionada
       setSelectedPhoto(file);
+
+      // Gera uma URL de visualização da imagem selecionada
       setPhotoPreview(URL.createObjectURL(file));
-    } else {
-      setPhotoPreview(undefined);
     }
   };
 
@@ -94,8 +87,8 @@ export const PerfilDetail = () => {
 
       if (selectedPhoto) {
         formData.append('photo', selectedPhoto);
-      } else if (data.photo) {
-        formData.append('photo', data.photo);
+      } else {
+        formData.append('photo', ''); // Caso a imagem seja removida
       }
 
       // Verifica o banner da mesma forma
@@ -181,14 +174,14 @@ export const PerfilDetail = () => {
             >
               <span id="overlay">Editar foto</span>
               <img
-                // src={
-                //   photoFile && photoFile instanceof File
-                //     ? URL.createObjectURL(photoFile)
-                //     : perfil?.photo && typeof perfil.photo === 'string'
-                //     ? perfil.photo
-                //     : ''
-                // }
-                src={photoPreview}
+                src={
+                  photoFile && photoFile instanceof File
+                    ? URL.createObjectURL(photoFile)
+                    : perfil?.photo && typeof perfil.photo === 'string'
+                    ? perfil.photo
+                    : ''
+                }
+                // src={photoPreview}
                 alt="Foto de perfil"
               />
             </label>

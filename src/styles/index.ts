@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
     }
 
     body {
@@ -32,6 +33,14 @@ export const GlobalStyle = createGlobalStyle`
       // max-width: 1244px
       max-width: 1280px
       // margin: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .visible {
+      display: block;
     }
 `;
 export const MainContainer = styled.div`
