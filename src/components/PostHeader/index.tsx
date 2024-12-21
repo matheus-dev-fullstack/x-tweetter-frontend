@@ -5,19 +5,13 @@ import * as S from './styles';
 import React, { useState, useEffect } from 'react';
 import { error } from 'console';
 
-const PostHeader = ({
-  toggleApiUrlFollowing,
-  toggleApiUrlAll
-}: {
-  toggleApiUrlFollowing: () => void;
-  toggleApiUrlAll: () => void;
-}) => {
+const PostHeader = () => {
   const navigate = useNavigate();
 
   return (
     <S.Header>
-      <S.Button onClick={toggleApiUrlAll}>For You</S.Button>
-      <S.Button onClick={toggleApiUrlFollowing}>Following</S.Button>
+      <S.Button onClick={() => navigate('/')}>For You</S.Button>
+      <S.Button onClick={() => navigate('/following/')}>Following</S.Button>
     </S.Header>
   );
 };

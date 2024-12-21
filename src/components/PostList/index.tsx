@@ -77,7 +77,8 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
 
       try {
         const response = await fetch(
-          apiUrl,
+          `http://127.0.0.1:8000/feed/posts/${apiUrl}`,
+
           // 'http://127.0.0.1:8000/feed/posts/following-posts/',
           // 'http://127.0.0.1:8000/feed/posts/',
           // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',

@@ -7,14 +7,14 @@ import { error } from 'console';
 import PostHeader from '../PostHeader';
 import PostList from '../PostList';
 
-const Posts = () => {
+const PostsFollowing = () => {
   return (
     <S.Container>
       <PostHeader />
       <PostForm />
-      <PostList apiUrl={''} />
+      <PostList apiUrl={'following-posts/'} />
     </S.Container>
   );
 };
 
-export default Posts;
+export default PostsFollowing;
