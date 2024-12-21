@@ -26,9 +26,9 @@ const LeftSidebar = () => {
 
       try {
         const response = await fetch(
-          // 'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
+          'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
           // {
-          'http://127.0.0.1:8000/auth/perfil/',
+          // 'http://127.0.0.1:8000/auth/perfil/',
           {
             headers: {
               Authorization: `Bearer ${token}`,

@@ -94,14 +94,16 @@ export const Trending = styled.a`
     font-weight: 700;
     color: ${cores.textoClaro};
     margin: 0;
+    margin-left: 0.5px;
   }
 `;
 
-export const DetailTrending = styled.span`
+export const DetailTrending = styled.div`
     font-size: 12px;
     color: ${cores.textoCinza};
     font-family: font-family: inherit;
     text-align: inherit;
+
 `;
 
 export const Location = styled.span`
@@ -134,7 +136,7 @@ export const ProfileButton = styled.a`
   padding-left: 14px;
   padding-right: 14px;
   padding-top: 14px;
-  padding-bottom: 26px;
+  padding-bottom: 14px;
   border: none;
   border-radius: 0 0 14px 14px;
   background-color: transparent;

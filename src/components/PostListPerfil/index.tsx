@@ -73,8 +73,8 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/feed/posts/user-posts/${username}/`,
-          // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
+          `https://matheusdevfullstack.pythonanywhere.com/feed/posts/user-posts/${username}/`,
+          // `http://127.0.0.1:8000/feed/posts/user-posts/${username}/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -119,7 +119,8 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
+        // `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
         // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
         {
           method: 'POST',
@@ -164,7 +165,8 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
+        // `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
         // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
         {
           method: 'POST',

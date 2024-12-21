@@ -146,6 +146,8 @@ export const ImageDiv = styled.div`
 
   img {
     // height: 100%;
+    max-height: 340px;
+
     width: 100%;
     border-radius: 14px;
 

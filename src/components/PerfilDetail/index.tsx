@@ -59,11 +59,15 @@ export const PerfilDetail = () => {
       }
 
       try {
-        const response = await axios.get('http://127.0.0.1:8000/auth/perfil/', {
-          headers: {
-            Authorization: `Bearer ${token}`
+        const response = await axios.get(
+          // 'http://127.0.0.1:8000/auth/perfil/',
+          'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
           }
-        });
+        );
         setPerfil(response.data);
         setValue('name', response.data.name);
         setValue('photo', response.data.photo);
@@ -106,7 +110,8 @@ export const PerfilDetail = () => {
       }
 
       await axios.patch(
-        'http://127.0.0.1:8000/auth/perfil/editar-perfil/',
+        // 'http://127.0.0.1:8000/auth/perfil/editar-perfil/',
+        'https://matheusdevfullstack.pythonanywhere.com//auth/perfil/editar-perfil/',
         formData,
         {
           headers: {

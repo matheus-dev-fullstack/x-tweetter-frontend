@@ -62,7 +62,8 @@ const RightSidebar = () => {
     const fetchTopFollowedProfiles = async () => {
       try {
         const response = await fetch(
-          'http://127.0.0.1:8000/auth/perfil/top-followed/',
+          // 'http://127.0.0.1:8000/auth/perfil/top-followed/',
+          'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/top-followed/',
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -94,8 +95,8 @@ const RightSidebar = () => {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/auth/perfil/overview/@MatheusOliveira/`,
-          // 'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
+          // `http://127.0.0.1:8000/auth/perfil/overview/@MatheusOliveira/`,
+          `https://matheusdevfullstack.pythonanywhere.com/auth/perfil/overview/@MatheusOliveira/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -133,7 +134,8 @@ const RightSidebar = () => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/auth/perfil/${id}/follow/`,
+        `https://matheusdevfullstack.pythonanywhere.com/auth/perfil/${id}/follow/`,
+        // `http://127.0.0.1:8000/auth/perfil/${id}/follow/`,
         {
           method: 'POST',
           headers: {
@@ -175,7 +177,10 @@ const RightSidebar = () => {
               <S.DetailTrending>Top Brazil</S.DetailTrending>
               <p>{profile.name}</p>
               <S.DetailTrending>
-                {profile.followers_count} Followers
+                <span className="me-2">
+                  {profile.followers_count} Followers
+                </span>
+                <span>{profile.following_count} Following</span>
               </S.DetailTrending>
             </S.Trending>
           ))

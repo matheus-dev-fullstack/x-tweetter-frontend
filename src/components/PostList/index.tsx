@@ -48,7 +48,6 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
   const [showComments, setShowComments] = useState<{ [key: number]: boolean }>(
     {}
   );
-  // const [apiUrl, setApiUrl] = useState('http://127.0.0.1:8000/feed/posts/');
 
   const toggleComments = (postId: number) => {
     setShowComments((prevShowComments) => ({
@@ -56,14 +55,6 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
       [postId]: !prevShowComments[postId]
     }));
   };
-
-  // const toggleApiUrlFolllowing = () => {
-  //   setApiUrl('http://127.0.0.1:8000/feed/posts/following-posts/');
-  // };
-
-  // const toggleApiUrlAll = () => {
-  //   setApiUrl('http://127.0.0.1:8000/feed/posts/');
-  // };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -77,7 +68,7 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/feed/posts/${apiUrl}`,
+          `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${apiUrl}`,
 
           // 'http://127.0.0.1:8000/feed/posts/following-posts/',
           // 'http://127.0.0.1:8000/feed/posts/',
@@ -126,8 +117,8 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
-        // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
+        // `http://127.0.0.1:8000/feed/posts/${postId}/like/`,
+        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/like/`,
         {
           method: 'POST',
           headers: {
@@ -171,8 +162,8 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
-        // `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
+        // `http://127.0.0.1:8000/feed/posts/${postId}/comment/`,
+        `https://matheusdevfullstack.pythonanywhere.com/feed/posts/${postId}/comment/`,
         {
           method: 'POST',
           headers: {
@@ -220,7 +211,8 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/auth/perfil/${id}/follow/`,
+        // `http://127.0.0.1:8000/auth/perfil/${id}/follow/`,
+        `https://matheusdevfullstack.pythonanywhere.com/auth/perfil/${id}/follow/`,
         {
           method: 'POST',
           headers: {

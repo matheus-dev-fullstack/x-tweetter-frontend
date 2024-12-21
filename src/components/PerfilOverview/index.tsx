@@ -34,7 +34,8 @@ const PerfilOverview = () => {
 
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/auth/perfil/overview/${username}/`,
+          `https://matheusdevfullstack.pythonanywhere.com/auth/perfil/overview/${username}/`,
+          // `http://127.0.0.1:8000/auth/perfil/overview/${username}/`,
           // 'https://matheusdevfullstack.pythonanywhere.com/auth/perfil/',
           {
             headers: {
