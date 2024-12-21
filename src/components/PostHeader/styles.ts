@@ -9,7 +9,7 @@ export const Header = styled.div`
   justify-content: center;
   border: 1px solid rgba(031, 033, 034, 0.6);
   background-color: transparent;
-  background-color: red;
+  // background-color: red;
 `;
 export const Button = styled.button`
   height: 100%;

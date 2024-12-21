@@ -85,14 +85,22 @@ export const RegisterForm = () => {
             type="text"
             placeholder="SeuNome"
           />
-          {errors.name && <p>{errors.name.message}</p>}
+          {errors.name && <p className="text-info">{errors.name.message}</p>}
           <S.Label htmlFor="username">Usuário:</S.Label>
           <S.Input
             {...register('username', { required: 'Username é obrigatório' })}
             type="text"
             placeholder="@SeuUsername"
+            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+              // Impede a exclusão do '@'
+              if (e.target.value[0] !== '@') {
+                e.target.value = '@' + e.target.value.replace('@', '');
+              }
+            }}
           />
-          {errors.username && <p>{errors.username.message}</p>}
+          {errors.username && (
+            <p className="text-info">{errors.username.message}</p>
+          )}
 
           <S.Label htmlFor="password">Senha:</S.Label>
           <S.Input
@@ -100,26 +108,33 @@ export const RegisterForm = () => {
             type="password"
             placeholder="********"
           />
-          {errors.password && <p>{errors.password.message}</p>}
+          {errors.password && (
+            <p className="text-info">{errors.password.message}</p>
+          )}
 
           <S.Label htmlFor="photo">Foto de Perfil:</S.Label>
           <S.InputFile
             // name="photo"
             {...register('photo', { required: 'Adicione uma foto de perfil' })}
-            className="form-control form-control-sm"
+            className="form-control form-control-sm mb-2"
             type="file"
             accept="image/*"
             // onChange={handlePhotoChange}
           />
+          {errors.photo && <p className="text-info">{errors.photo.message}</p>}
+
           <S.Label htmlFor="banner">Banner do Perfil:</S.Label>
           <S.InputFile
             {...register('banner', { required: 'Adicione um Banner' })}
             // name="banner"
-            className="form-control form-control-sm"
+            className="form-control form-control-sm mb-2"
             type="file"
             accept="image/*"
             // onChange={handleBannerChange}
           />
+          {errors.banner && (
+            <p className="text-info">{errors.banner.message}</p>
+          )}
 
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Cadastrar</S.ButtonSubmit>
