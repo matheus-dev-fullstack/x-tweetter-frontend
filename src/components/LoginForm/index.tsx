@@ -38,7 +38,7 @@ export const LoginForm = () => {
       navigate('/');
     } catch (error: any) {
       if (error.response && error.response.status === 401) {
-        setError('username', {
+        setError('password', {
           type: 'manual',
           message: 'Usuário ou senha inválidos.'
         });

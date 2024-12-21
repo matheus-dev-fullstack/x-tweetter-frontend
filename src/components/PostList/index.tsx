@@ -226,7 +226,7 @@ const PostList = ({ apiUrl }: { apiUrl: string }) => {
         alert(`Agora você está seguindo`);
         setIsFollowing(true);
       } else {
-        alert('Erro ao seguir o usuário');
+        alert('Você já segue este o usuário');
       }
     } catch (error) {
       alert('Erro na requisição de follow:');

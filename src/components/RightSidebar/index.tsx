@@ -149,7 +149,7 @@ const RightSidebar = () => {
         alert(`Agora você está seguindo`);
         setIsFollowing(true);
       } else {
-        alert('Erro ao seguir o usuário');
+        alert('Você já segue este usuário');
       }
     } catch (error) {
       alert('Erro na requisição de follow:');

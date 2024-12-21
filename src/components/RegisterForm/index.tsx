@@ -58,14 +58,15 @@ export const RegisterForm = () => {
       const token = response.data.access_token;
       if (token) {
         localStorage.setItem('token', token);
-        navigate('/');
+        // alert('Registrado:');
+        navigate('/login');
       } else {
-        console.log('Token não recebido após o cadastro.');
-        navigate('/home');
+        alert('Registrado finalizado! Agora faça login:');
+        navigate('/login');
       }
       // navigate('/feed');
     } catch (error: any) {
-      console.log('Erro ao cadastrar o usuário:', error);
+      alert('Erro ao cadastrar o usuário:');
       console.error('Erro:', error.response?.data || error.message);
     }
   };

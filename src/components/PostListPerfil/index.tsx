@@ -227,7 +227,7 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
                   <S.Verified className="bi bi-patch-check-fill"></S.Verified>{' '}
                   {/* <span>{post.user.username}</span> */}
                   <span>{post.author.username}</span>
-                  <S.More className="bi bi-three-dots" />
+                  <S.More className="" />
                 </S.ProfileName>
                 <S.TweetText>{post.content}</S.TweetText>
                 {post.imagem && (
