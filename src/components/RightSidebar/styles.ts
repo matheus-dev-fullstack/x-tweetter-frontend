@@ -81,6 +81,7 @@ export const Trending = styled.a`
   padding-left: 15px;
   padding-right: 14px;
   padding-top: 12px;
+  padding-bottom: 14px;
   text-decoration: none;
 
   :hover {
@@ -132,9 +133,10 @@ export const ProfileButton = styled.a`
   align-items: center;
   padding-left: 14px;
   padding-right: 14px;
-  padding-top: 16px;
-  padding-bottom: 24px;
+  padding-top: 14px;
+  padding-bottom: 26px;
   border: none;
+  border-radius: 0 0 14px 14px;
   background-color: transparent;
   transition: background-color 0.2s ease;
   text-decoration: none;

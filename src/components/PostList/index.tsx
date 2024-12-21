@@ -38,7 +38,7 @@ export type Post = {
   comentarios: Comentarios;
 };
 
-const PostList = () => {
+const PostList = ({ apiUrl }: { apiUrl: string }) => {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,6 +48,7 @@ const PostList = () => {
   const [showComments, setShowComments] = useState<{ [key: number]: boolean }>(
     {}
   );
+  // const [apiUrl, setApiUrl] = useState('http://127.0.0.1:8000/feed/posts/');
 
   const toggleComments = (postId: number) => {
     setShowComments((prevShowComments) => ({
@@ -55,6 +56,14 @@ const PostList = () => {
       [postId]: !prevShowComments[postId]
     }));
   };
+
+  // const toggleApiUrlFolllowing = () => {
+  //   setApiUrl('http://127.0.0.1:8000/feed/posts/following-posts/');
+  // };
+
+  // const toggleApiUrlAll = () => {
+  //   setApiUrl('http://127.0.0.1:8000/feed/posts/');
+  // };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -68,7 +77,9 @@ const PostList = () => {
 
       try {
         const response = await fetch(
-          'http://127.0.0.1:8000/feed/posts/',
+          apiUrl,
+          // 'http://127.0.0.1:8000/feed/posts/following-posts/',
+          // 'http://127.0.0.1:8000/feed/posts/',
           // 'https://matheusdevfullstack.pythonanywhere.com/feed/posts/',
           {
             headers: {

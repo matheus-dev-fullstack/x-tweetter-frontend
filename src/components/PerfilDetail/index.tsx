@@ -138,7 +138,7 @@ export const PerfilDetail = () => {
   return (
     <S.Container>
       <S.Header>
-        <button onClick={() => navigate(-1)}>
+        <button onClick={() => navigate('/')}>
           <i className="bi bi-arrow-left-short"></i>
         </button>
         <h4>{perfil?.name}</h4>

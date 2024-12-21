@@ -85,7 +85,7 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
 
         if (!response.ok) {
           const errorData = await response.json();
-          console.error('Erro ao buscar os posts:', errorData);
+          // console.error('Erro ao buscar os posts:', errorData);
 
           if (errorData.code === 'token_not_valid') {
             console.error('Token inválido, redirecionando para login.');
@@ -102,7 +102,7 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
         setPosts(formattedPosts);
         setLoading(false);
       } catch (error) {
-        console.error('Erro ao buscar os posts:', error);
+        // console.error('Erro ao buscar os posts:', error);
         setLoading(false);
       }
     };
@@ -282,7 +282,7 @@ const PostListPerfil: React.FC<PostListPerfilProps> = ({ username }) => {
           </S.Post>
         ))
       ) : (
-        <p>Erro ao carregar Posts</p>
+        <p className="w-100 text-center">Usuário não possui posts</p>
       )}
     </S.PostList>
   );

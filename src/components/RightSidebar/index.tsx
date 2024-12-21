@@ -54,10 +54,36 @@ const TopPages = {
 const RightSidebar = () => {
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
+  const [topProfiles, setTopProfiles] = useState<Perfil[] | null>(null);
   const [topPage, setTopPage] = useState<Perfil | null>(null);
   const [isFollowing, setIsFollowing] = useState(false);
 
   useEffect(() => {
+    const fetchTopFollowedProfiles = async () => {
+      try {
+        const response = await fetch(
+          'http://127.0.0.1:8000/auth/perfil/top-followed/',
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`,
+              'Content-Type': 'application/json'
+            }
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error('Erro ao carregar os perfis.');
+        }
+
+        const data = await response.json();
+        setTopProfiles(data);
+      } catch (err) {
+        setError((err as Error).message);
+      } finally {
+        // setTopLoading(false);
+      }
+    };
+
     const fetchPerfil = async () => {
       const token = localStorage.getItem('token');
 
@@ -97,6 +123,7 @@ const RightSidebar = () => {
         setError('Erro ao carregar o perfil.');
       }
     };
+    fetchTopFollowedProfiles();
     fetchPerfil();
   }, [navigate]);
 
@@ -137,20 +164,24 @@ const RightSidebar = () => {
       </S.Search>
       <S.Card>
         <S.Title>What&apos;s happening</S.Title>
-        {TrendingsData.trendings.map((trending, index) => (
-          <S.Trending
-            href={trending.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            key={index}
-          >
-            <S.DetailTrending>{trending.context}</S.DetailTrending>
-            <p>{trending.title}</p>
-            <S.DetailTrending>{trending.details}</S.DetailTrending>
-          </S.Trending>
-        ))}
-
-        <S.ShowMore>Show more</S.ShowMore>
+        {topProfiles ? (
+          topProfiles.map((profile, index) => (
+            <S.Trending
+              href={`/profile/${profile.username}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={index}
+            >
+              <S.DetailTrending>Top Brazil</S.DetailTrending>
+              <p>{profile.name}</p>
+              <S.DetailTrending>
+                {profile.followers_count} Followers
+              </S.DetailTrending>
+            </S.Trending>
+          ))
+        ) : (
+          <p>...carregando</p>
+        )}
       </S.Card>
       <S.Card>
         <S.Title>Who to follow</S.Title>
