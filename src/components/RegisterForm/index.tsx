@@ -92,7 +92,6 @@ export const RegisterForm = () => {
             type="text"
             placeholder="@SeuUsername"
             onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
-              // Impede a exclusão do '@'
               if (e.target.value[0] !== '@') {
                 e.target.value = '@' + e.target.value.replace('@', '');
               }

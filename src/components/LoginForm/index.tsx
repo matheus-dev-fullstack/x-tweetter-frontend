@@ -15,6 +15,7 @@ export const LoginForm = () => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors }
   } = useForm<Login>();
 
@@ -35,8 +36,19 @@ export const LoginForm = () => {
 
       console.log('Resposta do servidor:', response.data);
       navigate('/');
-    } catch (error) {
-      alert('Erro no login');
+    } catch (error: any) {
+      if (error.response && error.response.status === 401) {
+        setError('username', {
+          type: 'manual',
+          message: 'Usuário ou senha inválidos.'
+        });
+      } else {
+        setError('username', {
+          type: 'manual',
+          message: 'Erro no servidor. Tente novamente mais tarde.'
+        });
+      }
+      // alert('Erro no login');
     }
   };
 
@@ -54,13 +66,26 @@ export const LoginForm = () => {
             {...register('username', { required: 'Username é obrigatório' })}
             type="text"
             placeholder="@username"
+            onInput={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (e.target.value[0] !== '@') {
+                e.target.value = '@' + e.target.value.replace('@', '');
+              }
+            }}
           />
+          {errors.username && (
+            <p className="text-info">{errors.username.message}</p>
+          )}
+
           <S.Label htmlFor="password">Senha:</S.Label>
           <S.Input
             {...register('password', { required: 'Senha é obrigatória' })}
             type="password"
             placeholder="Senha"
           />
+          {errors.password && (
+            <p className="text-info">{errors.password.message}</p>
+          )}
+
           <S.DivButtons>
             <S.ButtonSubmit type="submit">Login</S.ButtonSubmit>
             <S.CancelButton to={`/home`}>Cancelar</S.CancelButton>
