@@ -9,6 +9,10 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${cores.preto};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ImageDiv = styled.div`
@@ -20,6 +24,14 @@ export const ImageDiv = styled.div`
   img {
     width: 500px;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+
+    img {
+      width: 120px;
+    }
+  }
 `;
 
 export const Options = styled.div`
@@ -27,6 +39,13 @@ export const Options = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    align-items: center;
+    padding-left: 0;
+    margin-top: 18px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -56,6 +75,10 @@ export const Input = styled.input`
   background-color: ${cores.branco};
   color: ${cores.preto};
 
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+
   ::placeholder {
     color: ${cores.textoCinza};
   }
@@ -63,6 +86,10 @@ export const Input = styled.input`
 export const InputFile = styled.input`
   width: 300px;
   font-size: 12px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const DivButtons = styled.div`
@@ -86,6 +113,10 @@ export const Button = styled(Link)`
   background-color: ${cores.azul};
   color: ${cores.textoClaro};
   margin-right: 20px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+  }
 `;
 
 export const CancelButton = styled(Button)`
