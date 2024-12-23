@@ -9,6 +9,10 @@ export const Content = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${cores.preto};
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ImageDiv = styled.div`
@@ -20,6 +24,16 @@ export const ImageDiv = styled.div`
   img {
     width: 500px;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+    img {
+      width: 120px;
+    }
+  }
 `;
 
 export const Options = styled.div`
@@ -27,12 +41,29 @@ export const Options = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    align-items: center;
+    margin-top: 22px;
+    // justify-content: center;
+    // display: none;
+
+    // margin: auto;
+    padding-left: 0;
+    // align-self: center;
+  }
 `;
 
 export const Title = styled.h1`
   margin-bottom: 30px;
   font-size: 56px;
   color: ${cores.textoClaro};
+
+  @media (max-width: 768px) {
+    font-size: 48px;
+    text-align: center;
+  }
 `;
 
 export const TextSubscribe = styled.h2`

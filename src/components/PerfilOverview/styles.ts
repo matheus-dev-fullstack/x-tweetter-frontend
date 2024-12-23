@@ -12,6 +12,12 @@ export const Container = styled.div`
   overflow-y: hidden;
   scroll-behavior: smooth;
   // overflow-y: scroll;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 export const Header = styled.div`

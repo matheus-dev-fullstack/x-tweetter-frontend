@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 export const Container = styled.header`
   position: relative;
   height: 100vh;
+  // width: 31.5vw;
   width: 598px;
   display: flex;
   flex-direction: column;
@@ -129,6 +130,10 @@ export const ProfileName = styled(Link)`
   span {
     font-size: 15px;
     color: ${cores.textoCinza};
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 export const TweetText = styled.p`

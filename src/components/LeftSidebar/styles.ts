@@ -4,13 +4,17 @@ import { SecondaryButton } from '../LoginOptions/styles';
 
 export const Sidebar = styled.header`
   width: 264px;
-  margin-right: 264px;
+  // margin-right: 264px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
   position: fixed;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Logo = styled.a`

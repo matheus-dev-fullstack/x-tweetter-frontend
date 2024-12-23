@@ -15,6 +15,10 @@ export const Sidebar = styled.div`
   position: fixed;
   right: 0;
   top: 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Search = styled.div`

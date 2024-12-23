@@ -6,12 +6,21 @@ export const Container = styled.header`
   height: 100vh;
   width: 598px;
   display: flex;
-  margin-left: 264px;
-  margin-right: 350px;
+  align-self: center;
+  margin-left: 20.8vw;
+  margin-right: 20vw;
+  // margin-right: 350px;
   flex-direction: column;
   border: 1.5px solid rgba(031, 033, 034, 0.6);
   overflow-y: hidden;
   scroll-behavior: smooth;
+  z-index: 20;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 export const Header = styled.div`
