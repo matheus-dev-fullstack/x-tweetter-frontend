@@ -53,7 +53,7 @@ export const PostList = styled.div`
 export const Post = styled.div`
   width: 100%;
   // min-height: 380px;
-  max-height: 620px;
+  // max-height: 620px;
   padding-top: 16px;
   padding-left: 16px;
   padding-right: 16px;
