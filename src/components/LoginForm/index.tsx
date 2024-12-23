@@ -34,7 +34,7 @@ export const LoginForm = () => {
       const token = response.data.access_token;
       localStorage.setItem('token', token);
 
-      console.log('Resposta do servidor:', response.data);
+      // console.log('Resposta do servidor:', response.data);
       navigate('/');
     } catch (error: any) {
       if (error.response && error.response.status === 401) {

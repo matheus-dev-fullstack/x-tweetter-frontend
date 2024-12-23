@@ -116,12 +116,12 @@ const RightSidebar = () => {
           }
         }
         const author = await response.json();
-        console.log(author);
+        // console.log(author);
         setTopPage(author);
       } catch (err) {
-        console.log(err);
-        console.error('Erro de rede:', err);
-        setError('Erro ao carregar o perfil.');
+        // console.log(err);
+        // console.error('Erro de rede:', err);
+        // setError('Erro ao carregar o perfil.');
       }
     };
     fetchTopFollowedProfiles();

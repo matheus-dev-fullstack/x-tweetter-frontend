@@ -122,19 +122,13 @@ export const PerfilDetail = () => {
       );
 
       alert('Perfil atualizado com sucesso!');
-      console.log('Foto selecionada:', selectedPhoto);
-      console.log('Banner selecionado:', selectedBanner);
       navigate('/');
     } catch (error: any) {
-      console.log('Foto selecionada:', selectedPhoto);
-      console.log('Banner selecionado:', selectedBanner);
       console.error(
         'Erro ao atualizar perfil:',
         error.response?.data || error.message
       );
       alert('Erro ao atualizar perfil. Verifique os campos e tente novamente.');
-      console.log('Foto selecionada:', selectedPhoto);
-      console.log('Banner selecionado:', selectedBanner);
     }
   };
 

@@ -56,13 +56,13 @@ const PerfilOverview = () => {
           }
         }
         const data = await response.json();
-        console.log(data);
-        console.log(username);
+        // console.log(data);
+        // console.log(username);
         setPerfil(data);
       } catch (err) {
-        console.log(err);
-        console.error('Erro de rede:', err);
-        setError('Erro ao carregar o perfil.');
+        // console.log(err);
+        // console.error('Erro de rede:', err);
+        // setError('Erro ao carregar o perfil.');
       }
     };
     fetchPerfil();

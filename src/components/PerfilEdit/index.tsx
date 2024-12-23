@@ -53,12 +53,12 @@ export const PerfilEdit = () => {
         localStorage.setItem('token', token);
         navigate('/');
       } else {
-        console.log('Token não recebido após o cadastro.');
+        // console.log('Token não recebido após o cadastro.');
         navigate('/home');
       }
       // navigate('/feed');
     } catch (error) {
-      console.log('Erro ao cadastrar o usuário:', error);
+      // console.log('Erro ao cadastrar o usuário:', error);
     }
   };
 
