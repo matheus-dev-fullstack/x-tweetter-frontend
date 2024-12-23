@@ -12,6 +12,12 @@ export const Container = styled.header`
   border: 1.5px solid rgba(031, 033, 034, 0.6);
   overflow-y: hidden;
   scroll-behavior: smooth;
+
+  @media (max-width: 768px) {
+    width: 100% !important;
+    margin: 0;
+    padding: 0;
+  }
 `;
 
 export const Header = styled.div`
