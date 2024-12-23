@@ -46,12 +46,8 @@ export const Options = styled.div`
     width: 100% !important;
     align-items: center;
     margin-top: 22px;
-    // justify-content: center;
-    // display: none;
 
-    // margin: auto;
     padding-left: 0;
-    // align-self: center;
   }
 `;
 
